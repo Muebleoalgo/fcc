@@ -1,0 +1,223 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Header from '~/components/widgets/Header.astro';
+import Hero2 from '~/components/widgets/Hero2.astro';
+import Features from '~/components/widgets/Features.astro';
+import Steps2 from '~/components/widgets/Steps2.astro';
+import Content from '~/components/widgets/Content.astro';
+import Pricing from '~/components/widgets/Pricing.astro';
+
+import { headerData } from '~/navigation';
+import FAQs from '~/components/widgets/FAQs.astro';
+import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
+
+const metadata = {
+  title: 'FCC: Proyectos de la Fundación Comunitaria Cajamarca',
+};
+---
+
+<Layout metadata={metadata}>
+  <Fragment slot="header">
+    <Header
+      {...headerData}
+      actions={[
+        {
+          variant: 'secondary',
+          text: 'Login',
+          href: '#',
+        },
+        {
+          variant: 'primary',
+          text: 'Sign Up',
+          href: '#',
+        },
+      ]}
+      isSticky={true}
+    />
+  </Fragment>
+
+  <!-- Hero2 Widget ******************* -->
+
+  <Hero2
+    tagline="Proyectos Comunitarios"
+    actions={[
+      { variant: 'primary', target: '_blank', text: 'Contribuye hoy', href: '/donaciones/donaciones' },
+      { text: 'Aprende más', href: '#proyectos' },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1580481072645-022f9a6dbf27?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      alt: 'Imagen de Proyectos FCC',
+    }}
+  >
+    <Fragment slot="title">
+      Comprometidos con el desarrollo de Cajamarca: <br /> nuestros <span class="text-accent dark:text-white highlight">proyectos</span> comunitarios<br />
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      <span class="hidden sm:inline">
+        Trabajamos día a día en proyectos que transforman la calidad de vida de nuestras comunidades.</span>
+      Únete a nosotros y sé parte de este cambio significativo.
+    </Fragment>
+  </Hero2>
+
+  <!-- Features Widget *************** -->
+
+  <Features
+    id="features"
+    title="Nuestros Valores"
+    subtitle="Cada uno de nuestros valores impulsa el impacto positivo en Cajamarca."
+    columns={2}
+    items={[
+      {
+        title: 'Transparencia',
+        description:
+          'Mantenemos procesos claros y accesibles para garantizar la confianza de nuestros aliados y la comunidad.',
+        icon: 'tabler:shield-check',
+      },
+      {
+        title: 'Sostenibilidad',
+        description: `Impulsamos proyectos que generen cambios duraderos y respeten el medio ambiente de Cajamarca.`,
+        icon: 'tabler:leaf',
+      },
+      {
+        title: 'Alianzas Estratégicas',
+        description:
+          'Colaboramos con organizaciones locales e internacionales para maximizar el impacto de nuestros proyectos.',
+        icon: 'tabler:users',
+      },
+      {
+        title: 'Compromiso Comunitario',
+        description: `Nos dedicamos a escuchar y trabajar junto con las comunidades para cubrir sus necesidades prioritarias.`,
+        icon: 'tabler:user-plus',
+      },
+    ]}
+  />
+
+  <!-- Maratón por los sueños Widget *************** -->
+
+  <Content
+    title="Maratón por los sueños"
+    subtitle="Un evento que reunió a la comunidad con el objetivo de apoyar proyectos educativos, recaudando fondos para la Escuela Jesús Trabajador."
+    isReversed={true}
+    items={[
+      {
+        title: 'Descripción:',
+        description:
+          'La Maratón por los sueños es un evento emblemático para recaudar fondos y promover la educación de calidad en la región de Cajamarca. Esta iniciativa busca movilizar a la comunidad y asegurar que los niños y jóvenes tengan acceso a recursos educativos indispensables.',
+      },
+      {
+        title: 'Beneficios:',
+        description: `Recauda fondos para la educación de calidad. <br /> Promueve la participación comunitaria y el trabajo conjunto. <br /> Garantiza el acceso a recursos educativos para los estudiantes más necesitados.`,
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1620558138198-cfb9b4f3c294?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1671&q=80',
+      alt: 'Maratón por los sueños',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        Historias de éxito comunitario: <br /><span class="text-2xl">Maratón por los sueños</span>
+      </h3>
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <!-- Talleres para las Organizaciones de la Sociedad Civil Widget *************** -->
+
+  <Content
+    isAfterContent={true}
+    title="Talleres para las Organizaciones de la Sociedad Civil"
+    subtitle="Capacitando a organizaciones locales para mejorar su gestión y sostenibilidad."
+    items={[
+      {
+        title: 'Descripción:',
+        description: `Los talleres están diseñados para fortalecer las capacidades de las organizaciones locales en temas de gestión y sostenibilidad. Abordamos temas como "Estrategias de articulación interinstitucional" para maximizar el impacto comunitario.`,
+      },
+      {
+        title: 'Beneficios:',
+        description: `Fortalece las capacidades de las organizaciones locales. <br /> Mejora la colaboración entre instituciones y la gestión sostenible de proyectos. <br /> Aumenta el impacto positivo de cada iniciativa en la comunidad.`,
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1531973486364-5fa64260d75b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1658&q=80',
+      alt: 'Talleres para Organizaciones',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        Crecimiento organizacional: <br /><span class="text-2xl">Capacitando a la sociedad civil</span>
+      </h3>
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <!-- Reforestación Widget *************** -->
+
+  <Content
+    isReversed={true}
+    isAfterContent={true}
+    title="Reforestación"
+    subtitle="Trabajamos con las comunidades para plantar árboles y recuperar áreas afectadas, promoviendo la sostenibilidad."
+    items={[
+      {
+        title: 'Descripción:',
+        description: `El proyecto de reforestación tiene como objetivo recuperar áreas afectadas por la deforestación, promoviendo la conservación del medio ambiente y la mejora de la calidad de vida en Cajamarca. Además, se educa a las comunidades sobre la importancia de mantener un entorno sostenible.`,
+      },
+      {
+        title: 'Beneficios:',
+        description: `Recuperación de áreas degradadas. <br /> Mejora de la calidad del aire y del entorno natural. <br /> Educación y concienciación sobre la importancia de la sostenibilidad ambiental.`,
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      alt: 'Reforestación en Cajamarca',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">
+        Recuperando el medio ambiente: <br /><span class="text-2xl">Reforestación comunitaria</span>
+      </h3>
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <!-- FAQs Widget ******************* -->
+
+  <FAQs
+    title="Preguntas Frecuentes"
+    items={[
+      {
+        title: '¿Cómo puedo participar en los proyectos?',
+        description:
+          'Puedes unirte como voluntario, donante o aliado estratégico. Encuentra más información en la página de Voluntarios.',
+        icon: 'tabler:chevrons-right',
+      },
+      {
+        title: '¿Qué impacto han tenido los proyectos de la Fundación?',
+        description: `Nuestros proyectos han impactado positivamente la calidad de vida de más de 1200 personas, generando oportunidades de educación, sostenibilidad y desarrollo comunitario.`,
+        icon: 'tabler:chevrons-right',
+      },
+      {
+        title: '¿Puedo proponer un nuevo proyecto?',
+        description:
+          'Sí, estamos abiertos a recibir propuestas que beneficien a la comunidad de Cajamarca. Puedes contactarnos para más detalles.',
+        icon: 'tabler:chevrons-right',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </FAQs>
+</Layout>

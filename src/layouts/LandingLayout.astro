@@ -1,0 +1,35 @@
+---
+import PageLayout from '~/layouts/PageLayout.astro';
+import Header from '~/components/widgets/Header.astro';
+
+import { headerData } from '~/navigation';
+import type { MetaData } from '~/types';
+
+export interface Props {
+  metadata?: MetaData;
+}
+
+const { metadata } = Astro.props;
+---
+
+<PageLayout metadata={metadata}>
+  <Fragment slot="announcement">
+    <slot name="announcement" />
+  </Fragment>
+  <Fragment slot="header">
+    <slot name="header">
+      <Header
+        links={headerData?.links[2] ? [headerData.links[2]] : undefined}
+        actions={[
+          {
+            text: 'Regístrate',
+            href: 'https://docs.google.com/forms/d/e/1FAIpQLScVUwShOltfzMYbM5SlOzBKCxEW2d6WK-0rRGbJokMzcpZAkg/viewform?usp=sf_link',
+          },
+        ]}
+        showToggleTheme
+        position="right"
+      />
+    </slot>
+  </Fragment>
+  <slot />
+</PageLayout>

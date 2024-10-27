@@ -1,0 +1,42 @@
+---
+// Importaciones necesarias
+import Layout from '~/layouts/LandingLayout.astro';
+import Hero2 from '~/components/widgets/Hero2.astro';
+
+const metadata = {
+  title: 'Dona Ahora',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Sección Hero con información de la campaña -->
+  <Hero2
+    tagline="Ayuda a transformar vidas"
+    title="Dona y Apoya Nuestra Causa"
+    subtitle="Con tu donación, podemos continuar ayudando a las personas más necesitadas. Cada contribución marca la diferencia."
+    image={{
+      src: 'https://images.unsplash.com/photo-1621452773781-0f992fd1f5cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1626&q=80',
+      alt: 'Campaña de donación',
+    }}
+  />
+
+  <!-- Botón personalizado fuera del componente Hero, mejor ubicado -->
+  <div class="text-center mt-8">
+    <button class="btn btn-primary" id="donateButton">Dona Ahora</button>
+  </div>
+</Layout>
+
+<script>
+  // Mover el código del script al final asegura que el botón exista antes de intentar accederlo
+  document.addEventListener('DOMContentLoaded', function () {
+    const donateButton = document.getElementById('donateButton');
+    if (donateButton) {
+      donateButton.addEventListener('click', function () {
+        // Redirigir al usuario al enlace de pago directo de Mercado Pago
+        window.location.href = 'https://link.mercadopago.com.pe/capraperusac';
+      });
+    } else {
+      console.error('El botón de donación no fue encontrado en el DOM.');
+    }
+  });
+</script>

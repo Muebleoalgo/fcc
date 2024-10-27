@@ -1,0 +1,198 @@
+---
+import Features2 from '~/components/widgets/Features2.astro';
+import Features3 from '~/components/widgets/Features3.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Stats from '~/components/widgets/Stats.astro';
+import Steps2 from '~/components/widgets/Steps2.astro';
+import Layout from '~/layouts/PageLayout.astro';
+import Brands from '~/components/widgets/Brands.astro';
+
+const metadata = {
+  title: 'Nosotros',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Widget ******************* -->
+
+  <Hero
+    tagline="Nosotros"
+    image={{
+      src: 'https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      alt: 'Imagen de la FCC',
+    }}
+  >
+    <Fragment slot="title">
+      Promovemos prácticas sostenibles para mejorar la calidad de vida en Cajamarca
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      La Fundación Comunitaria Cajamarca (FCC) busca generar un impacto positivo en la región mediante el desarrollo económico y social de las comunidades, abordando temas clave como el acceso a la identidad, educación, salud, vivienda y servicios básicos.
+    </Fragment>
+  </Hero>
+
+  <!-- Stats Widget ****************** -->
+
+  <Stats
+    title="Estadísticas sobre nosotros"
+    stats={[
+      { title: 'Oficinas', amount: '1' },
+      { title: 'Personas en el equipo', amount: '6' },
+      { title: 'Instituciones impactadas', amount: '2' },
+      { title: 'Eventos organizados', amount: '3' },
+    ]}
+  />
+
+  <!-- Features3 Widget ************** -->
+
+  <Features3
+    title="Nuestros proyectos"
+    subtitle="Trabajamos en diversas iniciativas para generar un cambio positivo en Cajamarca."
+    columns={3}
+    isBeforeContent={true}
+    items={[
+      {
+        title: 'Maratón por los sueños',
+        description:
+          'Una carrera que articula a la sociedad civil con instituciones dedicadas al desarrollo integral de la niñez, promoviendo la participación ciudadana y el apoyo a instituciones vulnerables.',
+        icon: 'tabler:template',
+      },
+      {
+        title: 'Talleres para Organizaciones de la Sociedad Civil',
+        description:
+          'Talleres organizados en colaboración con Mosaico, dirigidos a mejorar la gestión y sostenibilidad de las organizaciones de la sociedad civil en Cajamarca.',
+        icon: 'tabler:template',
+      },
+    ]}
+  />
+
+  <!-- Steps2 Widget ****************** -->
+
+  <Steps2
+    title="Nuestros valores"
+    subtitle="Los valores que guían nuestro trabajo y nuestro compromiso con la comunidad."
+    items={[
+      {
+        title: 'Transparencia',
+        description:
+          'Mantenemos una comunicación abierta y honesta con todas las partes interesadas para garantizar la confianza y la efectividad de nuestras acciones.',
+      },
+      {
+        title: 'Sostenibilidad',
+        description:
+          'Nos enfocamos en prácticas sostenibles que aseguren un impacto duradero y beneficioso para la comunidad.',
+      },
+      {
+        title: 'Alianzas Estratégicas',
+        description:
+          'Trabajamos junto a otras organizaciones, empresas e instituciones para multiplicar el impacto de nuestras acciones.',
+      },
+      {
+        title: 'Compromiso Comunitario',
+        description:
+          'Creemos en el poder de la comunidad para lograr un cambio positivo y trabajamos activamente con los habitantes de la región para lograrlo.',
+      },
+    ]}
+  />
+
+  <!-- Steps2 Widget ****************** -->
+
+  <Steps2
+    title="Logros y casos de éxito"
+    subtitle="Conoce algunos de nuestros logros y cómo hemos impactado en la vida de las personas."
+    isReversed={true}
+    items={[
+      {
+        title: 'Escuela Jesús Trabajador',
+        description: 'Se lograron donaciones de libros y la articulación con un gremio empresarial para la manutención del área de cocina de la escuela.',
+        icon: 'tabler:book',
+      },
+      {
+        title: 'Aldea Infantil San Antonio',
+        description:
+          'Se realizaron donaciones de libros para apoyar la educación y el desarrollo de los niños en la institución.',
+        icon: 'tabler:home-heart',
+      },
+    ]}
+  />
+
+
+ <!-- Brands Widget ****************** -->
+
+ <Brands
+ title="Alianzas y Colaboraciones"
+ subtitle="En la FCC creemos en el poder de la colaboración para impulsar el cambio y crear experiencias excepcionales."
+ icons={[]}
+ images={[
+   {
+     src: 'https://cdn.pixabay.com/photo/2015/05/26/09/37/paypal-784404_1280.png',
+     alt: 'Paypal',
+   },
+   {
+     src: 'https://cdn.pixabay.com/photo/2021/12/06/13/48/visa-6850402_1280.png',
+     alt: 'Visa',
+   },
+   {
+     src: 'https://cdn.pixabay.com/photo/2013/10/01/10/29/ebay-189064_1280.png',
+     alt: 'Ebay',
+   },
+   {
+     src: 'https://cdn.pixabay.com/photo/2015/04/13/17/45/icon-720944_1280.png',
+     alt: 'Youtube',
+   },
+   {
+     src: 'https://cdn.pixabay.com/photo/2013/02/12/09/07/microsoft-80658_1280.png',
+     alt: 'Microsoft',
+   },
+   {
+     src: 'https://cdn.pixabay.com/photo/2015/04/23/17/41/node-js-736399_1280.png',
+     alt: 'Node JS',
+   },
+   {
+     src: 'https://cdn.pixabay.com/photo/2015/10/31/12/54/google-1015751_1280.png',
+     alt: 'Google',
+   },
+   {
+     src: 'https://cdn.pixabay.com/photo/2021/12/06/13/45/meta-6850393_1280.png',
+     alt: 'Meta',
+   },
+   {
+     src: 'https://cdn.pixabay.com/photo/2013/01/29/22/53/yahoo-76684_1280.png',
+     alt: 'Yahoo',
+   },
+ ]}
+/>
+
+
+  <!-- Features2 Widget ************** -->
+
+  <Features2
+    title="Soporte y contacto"
+    tagline="Contáctanos"
+    columns={2}
+    items={[
+      {
+        title: 'Correo electrónico',
+        description: 'fundacioncomunitariacajamarca@gmail.com',
+        icon: 'tabler:mail',
+      },
+      {
+        title: 'Teléfono/WhatsApp',
+        description: '+51 965768311',
+        icon: 'tabler:phone',
+      },
+      {
+        title: 'Redes sociales',
+        description: 'Instagram: @fundacioncomunitariacajamarca  </br> Facebook: Fundación Comunitaria Cajamarca',
+        icon: 'tabler:brand-instagram',
+        
+      },
+      {
+        title: 'Cajamarca, Perú',
+        description: 'Nos encontramos en el distrito de Cajamarca, en la provincia de Cajamarca, en la región Cajamarca.',
+        icon: 'tabler:map-pin',
+      },
+    ]}
+  />
+  
+</Layout>

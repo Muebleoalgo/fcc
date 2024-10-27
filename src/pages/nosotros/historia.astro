@@ -1,0 +1,259 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Hero from '~/components/widgets/Hero.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+import Features2 from '~/components/widgets/Features2.astro';
+import Features from '~/components/widgets/Features.astro';
+import Stats from '~/components/widgets/Stats.astro';
+import Features3 from '~/components/widgets/Features3.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import Timeline from '~/components/ui/Timeline.astro';
+
+import { YouTube } from 'astro-embed';
+
+const metadata = {
+  title: 'Historia de la FCC',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Widget ******************* -->
+
+  <Hero
+    tagline="Nuestra Historia"
+    actions={[
+      {
+        variant: 'primary',
+        target: '_blank',
+        text: 'Conócenos más',
+        href: 'https://github.com/onwidget/astrowind',
+        icon: 'tabler:download',
+      },
+      { text: 'Leer más', href: '#features' },
+    ]}
+  >
+    <Fragment slot="title">
+      Creación y Desarrollo de la <span class="text-accent dark:text-white highlight">Fundación Comunitaria Cajamarca</span>
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      La Fundación Comunitaria Cajamarca (FCC) nace de la necesidad de promover prácticas sostenibles y el desarrollo comunitario en Cajamarca, Perú. Desde nuestra creación en 2024, hemos trabajado arduamente para canalizar recursos y contribuir al desarrollo económico y social de la región, beneficiando a las comunidades más necesitadas.
+    </Fragment>
+  </Hero>
+
+  <!-- Timeline Widget ************** -->
+
+  <Timeline
+    items={[
+      {
+        title: '2022: Inicio del Proyecto',
+        description: 'Participación en la convocatoria del programa "Incubadora Territorial 2da Edición". Seleccionados gracias al compromiso y motivación por mejorar Cajamarca.'
+      },
+      {
+        title: '2023-2024: Capacitación y Planificación',
+        description: 'Formación en Fundaciones Territoriales y desarrollo del plan de trabajo para la FCC.'
+      },
+      {
+        title: '16 de Julio de 2024: Constitución Legal',
+        description: 'Constitución legal de la FCC como persona jurídica bajo la razón social "FT Cajamarca".'
+      },
+      {
+        title: '15 de Agosto de 2024: Obtención del RUC',
+        description: 'Obtenemos el RUC, convirtiéndonos en una persona jurídica con derechos y deberes tributarios.'
+      },
+      {
+        title: 'Septiembre de 2024: Maratón por los Sueños',
+        description: 'Articulación de instituciones educativas y donantes en la "Maratón por los sueños" para apoyar a niños en situación vulnerable.'
+      }
+    ]}
+    
+  />
+
+  <!-- Features2 Widget ************** -->
+
+  <Features2
+    title="Acerca de Nosotros"
+    subtitle="La FCC fue fundada en el año 2024 como resultado de una colaboración entre individuos comprometidos con la mejora de la comunidad en Cajamarca."
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Features2>
+
+  <!-- Stats Widget ****************** -->
+
+  <Stats
+    title="Logros de la FCC"
+    subtitle="Estas cifras reflejan nuestro compromiso con el desarrollo de Cajamarca y el impacto positivo que hemos logrado."
+    stats={[
+      { title: 'Años de trabajo', amount: '2' },
+      { title: 'Comunidades impactadas', amount: '2' },
+      { title: 'Personas beneficiadas', amount: '+ 300' },
+      { title: 'Talleres y Eventos organizados', amount: '5' },
+    ]}
+  />
+
+ 
+  <!-- Features2 Widget ************** -->
+
+  <Features2
+    title="¿Qué servicios brindamos?"
+    subtitle="En la FCC trabajamos en diferentes áreas para mejorar la calidad de vida de las comunidades de Cajamarca."
+    items={[
+      {
+        title: 'Maratón por los sueños',
+        description:
+          'Una iniciativa que articula a la sociedad civil con instituciones que trabajan por el desarrollo integral de la niñez vulnerable.',
+        icon: 'flat-color-icons:document',
+      },
+      {
+        title: 'Talleres de Gestión',
+        description:
+          'Brindamos talleres para organizaciones de la sociedad civil en Cajamarca, enfocados en la mejora de la gestión y sostenibilidad de sus proyectos.',
+        icon: 'flat-color-icons:template',
+      },
+      {
+        title: 'Soporte Técnico',
+        description:
+          'Ofrecemos apoyo a las organizaciones en la implementación de prácticas sostenibles y la optimización de recursos para sus comunidades.',
+        icon: 'flat-color-icons:voice-presentation',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Features2>
+
+  <!-- Features Widget *************** -->
+
+  <Features
+    id="features"
+    title="Nuestros valores fundamentales"
+    subtitle="Los valores que guían nuestro trabajo y aseguran el impacto positivo de nuestras acciones en la comunidad."
+    columns={3}
+    items={[
+      {
+        title: 'Transparencia',
+        description:
+          'Mantenemos una comunicación abierta y honesta con todas las partes interesadas para garantizar la confianza en nuestras acciones.',
+        icon: 'tabler:artboard',
+      },
+      {
+        title: 'Sostenibilidad',
+        description: 'Nos enfocamos en prácticas sostenibles para un impacto duradero.',
+        icon: 'tabler:picture-in-picture',
+      },
+      {
+        title: 'Compromiso Comunitario',
+        description:
+          'Creemos en el poder de la comunidad para lograr un cambio positivo y trabajamos activamente con los habitantes de Cajamarca.',
+        icon: 'tabler:adjustments-horizontal',
+      },
+    ]}
+  />
+
+  <!-- FAQs Widget ******************* -->
+
+  <FAQs
+    title="Preguntas Frecuentes"
+    items={[
+      {
+        title: '¿Qué es la Fundación Comunitaria Cajamarca?',
+        description:
+          'La FCC es una organización que busca promover prácticas sostenibles y el desarrollo comunitario en la región de Cajamarca, mediante la gestión de recursos y la implementación de proyectos sociales.',
+      },
+      {
+        title: '¿Cómo puedo participar en los proyectos?',
+        description:
+          'Puedes unirte como voluntario o donante en nuestras distintas iniciativas. Contáctanos a través de nuestro correo o redes sociales para más información.',
+      },
+      {
+        title: '¿Qué actividades realiza la FCC?',
+        description:
+          'Realizamos actividades como la "Maratón por los sueños", talleres para organizaciones de la sociedad civil y colaboraciones con empresas e instituciones locales.',
+      },
+      {
+        title: '¿Dónde están ubicadas sus oficinas?',
+        description:
+          'Nos encontramos en el distrito de Cajamarca, en la provincia de Cajamarca, en la región Cajamarca.',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </FAQs>
+
+  <!-- Features3 Widget ************** -->
+
+  <Features3
+    title="Contáctanos"
+    subtitle="Estamos aquí para ayudarte y responder cualquier pregunta que puedas tener."
+    columns={4}
+    items={[
+      {
+        title: 'Teléfono',
+        icon: 'tabler:phone',
+        callToAction: {
+          target: '_blank',
+          text: 'Llámanos',
+          href: '/',
+          variant: 'link',
+        },
+      },
+      {
+        title: 'Correo electrónico',
+        icon: 'tabler:mail',
+        callToAction: {
+          target: '_blank',
+          text: 'Escríbenos',
+          href: '/',
+          variant: 'link',
+        },
+      },
+      {
+        title: 'Chat con ventas',
+        icon: 'tabler:message-circle',
+        callToAction: {
+          target: '_blank',
+          text: 'Iniciar chat',
+          href: '/',
+          variant: 'link',
+        },
+      },
+      {
+        title: 'Chat con soporte',
+        icon: 'tabler:message-circle',
+        callToAction: {
+          target: '_blank',
+          text: 'Iniciar chat',
+          href: '/',
+          variant: 'link',
+        },
+      },
+    ]}
+  />
+
+  <!-- CallToAction Widget *********** -->
+
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        target: '_blank',
+        text: 'Únete a nuestra misión',
+        href: 'https://github.com/onwidget/astrowind',
+        icon: 'tabler:download',
+      },
+    ]}
+  >
+    <Fragment slot="title">Sé parte de nuestra visión</Fragment>
+
+    <Fragment slot="subtitle">
+      Descubre un entorno de trabajo dinámico, oportunidades de crecimiento inigualables y la posibilidad de generar un impacto significativo.
+    </Fragment>
+  </CallToAction>
+</Layout>

@@ -6,7 +6,7 @@ import ToggleMenu from '~/components/common/ToggleMenu.astro';
 import BotonDonaAhora from '~/components/widgets/BotonDonaAhora.astro';
 
 import { getHomePermalink } from '~/utils/permalinks';
-import { trimSlash, getAsset } from '~/utils/permalinks';
+//import { trimSlash, getAsset } from '~/utils/permalinks';
 import type { CallToAction } from '~/types';
 
 interface Link {
@@ -34,17 +34,17 @@ export interface Props {
 
 const {
   id = 'header',
-  links = [],
-  actions = [],
+  //links = [],
+  //actions = [],
   isSticky = false,
   isDark = false,
   isFullWidth = false,
   showToggleTheme = true,
-  showRssFeed = false,
+  //showRssFeed = false,
   position = 'center',
 } = Astro.props;
 
-const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
+//const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
 ---
 
 <header
@@ -91,15 +91,26 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
             Nosotros
             <Icon name="tabler:chevron-down" class="w-3.5 h-3.5 ml-0.5 rtl:ml-0 rtl:mr-0.5 hidden md:inline" />
           </a>
-          <ul class="dropdown-menu md:backdrop-blur-md dark:md:bg-dark rounded md:absolute pl-4 md:pl-0 md:hidden font-medium md:bg-white/90 md:min-w-[200px] drop-shadow-xl">
-           <li>
-              <a class="py-2 px-5 block whitespace-no-wrap hover:text-link dark:hover:text-white dark:hover:bg-gray-700" href="/nosotros/junta_directiva">Junta Directiva</a>
+          <ul
+            class="dropdown-menu md:backdrop-blur-md dark:md:bg-dark rounded md:absolute pl-4 md:pl-0 md:hidden font-medium md:bg-white/90 md:min-w-[200px] drop-shadow-xl"
+          >
+            <li>
+              <a
+                class="py-2 px-5 block whitespace-no-wrap hover:text-link dark:hover:text-white dark:hover:bg-gray-700"
+                href="/nosotros/junta_directiva">Junta Directiva</a
+              >
             </li>
             <li>
-              <a class="py-2 px-5 block whitespace-no-wrap hover:text-link dark:hover:text-white dark:hover:bg-gray-700" href="/nosotros/equipo">Equipo</a>
+              <a
+                class="py-2 px-5 block whitespace-no-wrap hover:text-link dark:hover:text-white dark:hover:bg-gray-700"
+                href="/nosotros/equipo">Equipo</a
+              >
             </li>
             <li>
-              <a class="py-2 px-5 block whitespace-no-wrap hover:text-link dark:hover:text-white dark:hover:bg-gray-700" href="/nosotros/historia">Nuestra Historia</a>
+              <a
+                class="py-2 px-5 block whitespace-no-wrap hover:text-link dark:hover:text-white dark:hover:bg-gray-700"
+                href="/nosotros/historia">Nuestra Historia</a
+              >
             </li>
           </ul>
         </li>
@@ -108,12 +119,20 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
             Iniciativas
             <Icon name="tabler:chevron-down" class="w-3.5 h-3.5 ml-0.5 rtl:ml-0 rtl:mr-0.5 hidden md:inline" />
           </a>
-          <ul class="dropdown-menu md:backdrop-blur-md dark:md:bg-dark rounded md:absolute pl-4 md:pl-0 md:hidden font-medium md:bg-white/90 md:min-w-[200px] drop-shadow-xl">
+          <ul
+            class="dropdown-menu md:backdrop-blur-md dark:md:bg-dark rounded md:absolute pl-4 md:pl-0 md:hidden font-medium md:bg-white/90 md:min-w-[200px] drop-shadow-xl"
+          >
             <li>
-              <a class="py-2 px-5 block whitespace-no-wrap hover:text-link dark:hover:text-white dark:hover:bg-gray-700" href="/donaciones/empresas">Empresas</a>
+              <a
+                class="py-2 px-5 block whitespace-no-wrap hover:text-link dark:hover:text-white dark:hover:bg-gray-700"
+                href="/donaciones/empresas">Empresas</a
+              >
             </li>
             <li>
-              <a class="py-2 px-5 block whitespace-no-wrap hover:text-link dark:hover:text-white dark:hover:bg-gray-700" href="/donaciones/fondos">Fondos</a>
+              <a
+                class="py-2 px-5 block whitespace-no-wrap hover:text-link dark:hover:text-white dark:hover:bg-gray-700"
+                href="/donaciones/fondos">Fondos</a
+              >
             </li>
           </ul>
         </li>
@@ -122,12 +141,20 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
             Voluntarios
             <Icon name="tabler:chevron-down" class="w-3.5 h-3.5 ml-0.5 rtl:ml-0 rtl:mr-0.5 hidden md:inline" />
           </a>
-          <ul class="dropdown-menu md:backdrop-blur-md dark:md:bg-dark rounded md:absolute pl-4 md:pl-0 md:hidden font-medium md:bg-white/90 md:min-w-[200px] drop-shadow-xl">
+          <ul
+            class="dropdown-menu md:backdrop-blur-md dark:md:bg-dark rounded md:absolute pl-4 md:pl-0 md:hidden font-medium md:bg-white/90 md:min-w-[200px] drop-shadow-xl"
+          >
             <li>
-              <a class="py-2 px-5 block whitespace-no-wrap hover:text-link dark:hover:text-white dark:hover:bg-gray-700" href="/voluntarios/unete_voluntario">Únete como voluntario</a>
+              <a
+                class="py-2 px-5 block whitespace-no-wrap hover:text-link dark:hover:text-white dark:hover:bg-gray-700"
+                href="/voluntarios/unete_voluntario">Únete como voluntario</a
+              >
             </li>
             <li>
-              <a class="py-2 px-5 block whitespace-no-wrap hover:text-link dark:hover:text-white dark:hover:bg-gray-700" href="/voluntarios/eventos">Eventos de Voluntariado</a>
+              <a
+                class="py-2 px-5 block whitespace-no-wrap hover:text-link dark:hover:text-white dark:hover:bg-gray-700"
+                href="/voluntarios/eventos">Eventos de Voluntariado</a
+              >
             </li>
           </ul>
         </li>
@@ -136,21 +163,26 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
             Proyectos
             <Icon name="tabler:chevron-down" class="w-3.5 h-3.5 ml-0.5 rtl:ml-0 rtl:mr-0.5 hidden md:inline" />
           </a>
-          <ul class="dropdown-menu md:backdrop-blur-md dark:md:bg-dark rounded md:absolute pl-4 md:pl-0 md:hidden font-medium md:bg-white/90 md:min-w-[200px] drop-shadow-xl">
+          <ul
+            class="dropdown-menu md:backdrop-blur-md dark:md:bg-dark rounded md:absolute pl-4 md:pl-0 md:hidden font-medium md:bg-white/90 md:min-w-[200px] drop-shadow-xl"
+          >
             <li>
-              <a class="py-2 px-5 block whitespace-no-wrap hover:text-link dark:hover:text-white dark:hover:bg-gray-700" href="/proyectos/proyectos">Proyectos en curso</a>
+              <a
+                class="py-2 px-5 block whitespace-no-wrap hover:text-link dark:hover:text-white dark:hover:bg-gray-700"
+                href="/proyectos/proyectos">Proyectos en curso</a
+              >
             </li>
             <li>
-              <a class="py-2 px-5 block whitespace-no-wrap hover:text-link dark:hover:text-white dark:hover:bg-gray-700" href="/proyectos/proyectos_completados">Proyectos completados</a>
+              <a
+                class="py-2 px-5 block whitespace-no-wrap hover:text-link dark:hover:text-white dark:hover:bg-gray-700"
+                href="/proyectos/proyectos_completados">Proyectos completados</a
+              >
             </li>
           </ul>
         </li>
         <li>
-          <a href="/contact" class="hover:text-link dark:hover:text-white px-4 py-3 flex items-center">
-            Contáctanos
-          </a>
+          <a href="/contact" class="hover:text-link dark:hover:text-white px-4 py-3 flex items-center"> Contáctanos </a>
         </li>
-        
       </ul>
     </nav>
     <div
@@ -162,12 +194,10 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
       <div class="items-center flex justify-between w-full md:w-auto">
         <div class="flex">
           {showToggleTheme && <ToggleTheme iconClass="w-6 h-6 md:w-5 md:h-5 md:inline-block" />}
-        </div>     
+        </div>
         <span class="ml-4 rtl:ml-0 rtl:mr-4">
           <BotonDonaAhora />
-        </span>    
-      </div>
-    </div>
+        </span>
       </div>
     </div>
   </div>

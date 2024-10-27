@@ -2,7 +2,8 @@ import express from 'express';
 import mercadopago from 'mercadopago';
 import paymentRoutes from './routes/payment.routes.js';
 import morgan from 'morgan';
-require('dotenv').config();
+import 'dotenv/config';
+
 const accessToken = process.env.ACCESS_TOKEN;
 
 

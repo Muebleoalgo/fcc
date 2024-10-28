@@ -1,4 +1,5 @@
 ---
+// Stats.astro
 import type { Stats as Props } from '~/types';
 import WidgetWrapper from '../ui/WidgetWrapper.astro';
 import Headline from '../ui/Headline.astro';
@@ -17,6 +18,51 @@ const {
 } = Astro.props;
 ---
 
+<script>
+  function countUp(element, endValue) {
+    let start = 0;
+    const duration = 1000; // Duración de 0.5 segundos
+    const increment = endValue / (duration / 16);
+
+    function step() {
+      start += increment;
+      if (start >= endValue) {
+        element.textContent = endValue.toString();
+      } else {
+        element.textContent = Math.floor(start).toString();
+        requestAnimationFrame(step);
+      }
+    }
+    requestAnimationFrame(step);
+  }
+
+  function initializeCountUp() {
+    const statsElements = document.querySelectorAll('.stat-amount');
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const element = entry.target;
+          const amount = parseInt(element.getAttribute('data-amount') || '0', 10);
+          countUp(element, amount);
+          observer.unobserve(element); // Dejar de observar después de iniciar el conteo
+        }
+      });
+    }, {
+      threshold: 0.1 // Iniciar cuando el 10% del elemento sea visible
+    });
+
+    statsElements.forEach((element) => {
+      observer.observe(element);
+    });
+  }
+
+  // Escucha el evento después de cada transición de página en Astro
+  document.addEventListener('astro:after-swap', initializeCountUp);
+  // También lo llamamos en la primera carga
+  document.addEventListener('DOMContentLoaded', initializeCountUp);
+</script>
+
 <WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-6xl mx-auto ${classes?.container ?? ''}`} bg={bg}>
   <Headline title={title} subtitle={subtitle} tagline={tagline} />
   <div class="flex flex-wrap justify-center -m-4 text-center">
@@ -30,8 +76,8 @@ const {
               </div>
             )}
             {amount && (
-              <div class="font-heading text-primary text-[2.6rem] font-bold dark:text-white lg:text-5xl xl:text-6xl">
-                {amount}
+              <div class="font-heading text-primary text-[2.6rem] font-bold dark:text-white lg:text-5xl xl:text-6xl stat-amount" data-amount={amount}>
+                0
               </div>
             )}
             {title && (

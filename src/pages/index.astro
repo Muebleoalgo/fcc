@@ -24,7 +24,6 @@ const metadata = {
   <Hero
     actions={[
       {
-        variant: 'primary',
         text: 'Quiénes somos',
         href: '#features',
         target: '_self',
@@ -35,7 +34,7 @@ const metadata = {
   >
     <Fragment slot="title">
       Fundación Comunitaria Cajamarca
-      <span class="text-accent dark:text-white highlight"> Comprometidos con el bienestar comunitario</span>
+      <span class="text-accent dark:text-white highlight whitespace-nowrap text-center block text-4xl">Comprometidos con el bienestar comunitario</span>
     </Fragment>
 
     <Fragment slot="subtitle">
@@ -101,15 +100,16 @@ const metadata = {
 
   <!-- Stats Widget ****************** -->
 
-  <Stats
+<Stats
     stats={[
-      { title: 'Proyectos Completados', amount: '2' },
-      { title: 'Recursos Movilizados (S/)', amount: '5K' },
-      { title: 'Personas Impactadas', amount: '+ 300' },
-      { title: 'Donantes', amount: '+ 10' },
-      { title: 'Actores Aliados', amount: '+ 10' },
+        { title: 'Proyectos Completados', amount: 2 },
+        { title: 'Recursos Movilizados (S/)', amount: 5000 },
+        { title: 'Personas Impactadas', amount: 300 },
+        { title: 'Donantes', amount: 10 },
+        { title: 'Actores Aliados', amount: 10 },
     ]}
-  />
+/>
+
 
   <!-- CallToAction Widget *********** -->
 

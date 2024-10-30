@@ -34,9 +34,7 @@ const {
                 />
               )}
             </div>
-            {index !== items.length - 1 && (
-              <div class="w-32 h-1 bg-black/10 dark:bg-slate-400/50 mt-4"></div>
-            )}
+            {index !== items.length - 1 && <div class="w-32 h-1 bg-black/10 dark:bg-slate-400/50 mt-4" />}
           </div>
           <div class="pt-1 text-center">
             {title && <p class={twMerge('text-xl font-bold', titleClass, itemClasses?.title)} set:html={title} />}

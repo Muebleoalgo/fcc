@@ -21,7 +21,7 @@ const {
 <script>
   function countUp(element, endValue) {
     let start = 0;
-    const duration = 1000; // Duración de 0.5 segundos
+    const duration = 1200; // Duración de 0.5 segundos
     const increment = endValue / (duration / 16);
 
     function step() {
@@ -38,19 +38,22 @@ const {
 
   function initializeCountUp() {
     const statsElements = document.querySelectorAll('.stat-amount');
-    
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const element = entry.target;
-          const amount = parseInt(element.getAttribute('data-amount') || '0', 10);
-          countUp(element, amount);
-          observer.unobserve(element); // Dejar de observar después de iniciar el conteo
-        }
-      });
-    }, {
-      threshold: 0.1 // Iniciar cuando el 10% del elemento sea visible
-    });
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const element = entry.target;
+            const amount = parseInt(element.getAttribute('data-amount') || '0', 10);
+            countUp(element, amount);
+            observer.unobserve(element); // Dejar de observar después de iniciar el conteo
+          }
+        });
+      },
+      {
+        threshold: 0.1, // Iniciar cuando el 10% del elemento sea visible
+      }
+    );
 
     statsElements.forEach((element) => {
       observer.observe(element);
@@ -76,7 +79,10 @@ const {
               </div>
             )}
             {amount && (
-              <div class="font-heading text-primary text-[2.6rem] font-bold dark:text-white lg:text-5xl xl:text-6xl stat-amount" data-amount={amount}>
+              <div
+                class="font-heading text-primary text-[2.6rem] font-bold dark:text-white lg:text-5xl xl:text-6xl stat-amount"
+                data-amount={amount}
+              >
                 0
               </div>
             )}

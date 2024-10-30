@@ -113,7 +113,7 @@ export const footerData = {
       title: 'INICIATIVAS ',
       links: [
         { text: 'Empresas', href: '/donaciones/empresas' },
-        { text: 'Fondos', href: '/donaciones/fondos' }
+        { text: 'Fondos', href: '/donaciones/fondos' },
       ],
     },
     {
@@ -135,7 +135,7 @@ export const footerData = {
       links: [
         { text: 'X', icon: 'tabler:brand-x', href: '#' },
         { text: 'Instagram', icon: 'tabler:brand-instagram', href: '#' },
-        { text: 'Facebook', icon: 'tabler:brand-facebook', href: '#' }
+        { text: 'Facebook', icon: 'tabler:brand-facebook', href: '#' },
       ],
     },
   ],

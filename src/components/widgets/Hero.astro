@@ -19,7 +19,7 @@ const {
 const carouselImages = [
   '/src/assets/images/proyecto1.jpg',
   '/src/assets/images/proyecto2.jpg',
-  '/src/assets/images/proyecto3.jpg'
+  '/src/assets/images/proyecto3.jpg',
 ];
 ---
 
@@ -28,9 +28,7 @@ const carouselImages = [
   <div class="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
     <slot name="bg">
       <div class="carousel">
-        {carouselImages.map((src, index) => (
-          <img src={src} alt={`Imagen ${index + 1}`} class="carousel-image" />
-        ))}
+        {carouselImages.map((src, index) => <img src={src} alt={`Imagen ${index + 1}`} class="carousel-image" />)}
       </div>
     </slot>
   </div>
@@ -39,91 +37,107 @@ const carouselImages = [
     <div class="pt-0 md:pt-[79px] pointer-events-none"></div>
     <div class="py-12 md:py-20">
       <div class="text-center pb-10 md:pb-16 max-w-5xl mx-auto">
-        {tagline && (
-          <p
-            class="text-base text-secondary dark:text-blue-200 font-bold tracking-wide uppercase"
-            set:html={tagline}
-          />
-        )}
-        {title && (
-          <h1
-            class="text-5xl md:text-6xl font-bold leading-tighter tracking-tighter mb-4 font-heading dark:text-gray-200"
-            set:html={title}
-          />
-        )}
+        {
+          tagline && (
+            <p
+              class="text-base text-secondary dark:text-blue-200 font-bold tracking-wide uppercase"
+              set:html={tagline}
+            />
+          )
+        }
+        {
+          title && (
+            <h1
+              class="text-5xl md:text-6xl font-bold leading-tighter tracking-tighter mb-4 font-heading dark:text-gray-200"
+              set:html={title}
+            />
+          )
+        }
         <div class="max-w-3xl mx-auto">
           {subtitle && <p class="text-xl text-muted mb-6 dark:text-slate-300" set:html={subtitle} />}
-          {actions && (
-            <div class="max-w-xs sm:max-w-md m-auto flex flex-nowrap flex-col sm:flex-row sm:justify-center gap-4">
-              {Array.isArray(actions) ? (
-                actions.map((action) => (
-                  <div class="flex w-full sm:w-auto">
-                    <Button {...(action || {})} class="w-full sm:mb-0" />
-                  </div>
-                ))
-              ) : (
-                <Fragment set:html={actions} />
-              )}
-            </div>
-          )}
+          {
+            actions && (
+              <div class="max-w-xs sm:max-w-md m-auto flex flex-nowrap flex-col sm:flex-row sm:justify-center gap-4">
+                {Array.isArray(actions) ? (
+                  actions.map((action) => (
+                    <div class="flex w-full sm:w-auto">
+                      <Button {...(action || {})} class="w-full sm:mb-0" />
+                    </div>
+                  ))
+                ) : (
+                  <Fragment set:html={actions} />
+                )}
+              </div>
+            )
+          }
         </div>
         {content && <Fragment set:html={content} />}
       </div>
       <div>
-        {image && (
-          <div class="relative m-auto max-w-5xl">
-            {typeof image === 'string' ? (
-              <Fragment set:html={image} />
-            ) : (
-              <Image
-                class="mx-auto rounded-md w-full"
-                widths={[400, 768, 1024, 2040]}
-                sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
-                loading="eager"
-                width={1024}
-                height={576}
-                {...image}
-              />
-            )}
-          </div>
-        )}
+        {
+          image && (
+            <div class="relative m-auto max-w-5xl">
+              {typeof image === 'string' ? (
+                <Fragment set:html={image} />
+              ) : (
+                <Image
+                  class="mx-auto rounded-md w-full"
+                  widths={[400, 768, 1024, 2040]}
+                  sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
+                  loading="eager"
+                  width={1024}
+                  height={576}
+                  {...image}
+                />
+              )}
+            </div>
+          )
+        }
       </div>
     </div>
   </div>
 </section>
 
 <style lang="css">
-.hero-container {
-  position: relative;
-  overflow: hidden;
-}
+  .hero-container {
+    position: relative;
+    overflow: hidden;
+  }
 
-.carousel {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  animation: slide 15s infinite;
-}
+  .carousel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    animation: slide 15s infinite;
+  }
 
-.carousel-image {
-  min-width: 100%;
-  height: auto;
-  opacity: 0.6; /* Ajusta la opacidad para que el texto sea más visible */
-}
+  .carousel-image {
+    min-width: 100%;
+    height: auto;
+    opacity: 0.6; /* Ajusta la opacidad para que el texto sea más visible */
+  }
 
-@keyframes slide {
-  0% { transform: translateX(0%); }
-  33% { transform: translateX(-100%); }
-  66% { transform: translateX(-200%); }
-  100% { transform: translateX(0%); }
-}
+  @keyframes slide {
+    0% {
+      transform: translateX(0%);
+    }
+    33% {
+      transform: translateX(-100%);
+    }
+    66% {
+      transform: translateX(-200%);
+    }
+    100% {
+      transform: translateX(0%);
+    }
+  }
 
-/* Ajustes para el contenido del Hero sobre el fondo del carrusel */
-.Hero {
-  position: relative;
-  z-index: 1;
-}
+  /* Ajustes para el contenido del Hero sobre el fondo del carrusel */
+  .Hero {
+    position: relative;
+    z-index: 1;
+  }
 </style>

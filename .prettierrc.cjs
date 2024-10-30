@@ -6,7 +6,7 @@ module.exports = {
   tabWidth: 2,
   trailingComma: 'es5',
   useTabs: false,
-
+  endOfLine: 'lf',
   plugins: [require.resolve('prettier-plugin-astro')],
 
   overrides: [{ files: '*.astro', options: { parser: 'astro' } }],

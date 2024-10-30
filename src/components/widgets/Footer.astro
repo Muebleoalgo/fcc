@@ -2,7 +2,6 @@
 import { Icon } from 'astro-icon/components';
 import { getHomePermalink } from '~/utils/permalinks';
 
-
 interface Link {
   text?: string;
   href?: string;
@@ -34,7 +33,7 @@ const logoSrc = '/src/assets/images/logo-fcc.png';
       <div class="col-span-12 lg:col-span-2 text-center">
         <a href={getHomePermalink()}>
           <img src={logoSrc} alt="Logo FCC" class="h-12" />
-        </a><br>
+        </a><br />
         <div class="text-sm text-muted flex gap-1 justify-center mt-1">
           {
             secondaryLinks.map(({ text, href }, index) => (
@@ -54,7 +53,9 @@ const logoSrc = '/src/assets/images/logo-fcc.png';
         links.map(({ title, links }) => (
           <div class="col-span-6 md:col-span-2 text-center">
             <div class="dark:text-gray-300 font-medium mb-2">
-              <a href={links[0]?.href || '#'} class="hover:underline">{title}</a>
+              <a href={links[0]?.href || '#'} class="hover:underline">
+                {title}
+              </a>
             </div>
             {links && Array.isArray(links) && links.length > 0 && (
               <ul class="text-sm">

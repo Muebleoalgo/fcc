@@ -11,7 +11,7 @@ import Features3 from '~/components/widgets/Features3.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import Timeline from '~/components/ui/Timeline.astro';
 
-//import { YouTube } from 'astro-embed'; --- toca importar video 
+//import { YouTube } from 'astro-embed'; --- toca importar video
 
 const metadata = {
   title: 'Historia de la FCC',
@@ -35,11 +35,15 @@ const metadata = {
     ]}
   >
     <Fragment slot="title">
-      Creación y Desarrollo de la <span class="text-accent dark:text-white highlight">Fundación Comunitaria Cajamarca</span>
+      Creación y Desarrollo de la <span class="text-accent dark:text-white highlight"
+        >Fundación Comunitaria Cajamarca</span
+      >
     </Fragment>
 
     <Fragment slot="subtitle">
-      La Fundación Comunitaria Cajamarca (FCC) nace de la necesidad de promover prácticas sostenibles y el desarrollo comunitario en Cajamarca, Perú. Desde nuestra creación en 2024, hemos trabajado arduamente para canalizar recursos y contribuir al desarrollo económico y social de la región, beneficiando a las comunidades más necesitadas.
+      La Fundación Comunitaria Cajamarca (FCC) nace de la necesidad de promover prácticas sostenibles y el desarrollo
+      comunitario en Cajamarca, Perú. Desde nuestra creación en 2024, hemos trabajado arduamente para canalizar recursos
+      y contribuir al desarrollo económico y social de la región, beneficiando a las comunidades más necesitadas.
     </Fragment>
   </Hero>
 
@@ -49,26 +53,27 @@ const metadata = {
     items={[
       {
         title: '2022: Inicio del Proyecto',
-        description: 'Participación en la convocatoria del programa "Incubadora Territorial 2da Edición". Seleccionados gracias al compromiso y motivación por mejorar Cajamarca.'
+        description:
+          'Participación en la convocatoria del programa "Incubadora Territorial 2da Edición". Seleccionados gracias al compromiso y motivación por mejorar Cajamarca.',
       },
       {
         title: '2023-2024: Capacitación y Planificación',
-        description: 'Formación en Fundaciones Territoriales y desarrollo del plan de trabajo para la FCC.'
+        description: 'Formación en Fundaciones Territoriales y desarrollo del plan de trabajo para la FCC.',
       },
       {
         title: '16 de Julio de 2024: Constitución Legal',
-        description: 'Constitución legal de la FCC como persona jurídica bajo la razón social "FT Cajamarca".'
+        description: 'Constitución legal de la FCC como persona jurídica bajo la razón social "FT Cajamarca".',
       },
       {
         title: '15 de Agosto de 2024: Obtención del RUC',
-        description: 'Obtenemos el RUC, convirtiéndonos en una persona jurídica con derechos y deberes tributarios.'
+        description: 'Obtenemos el RUC, convirtiéndonos en una persona jurídica con derechos y deberes tributarios.',
       },
       {
         title: 'Septiembre de 2024: Maratón por los Sueños',
-        description: 'Articulación de instituciones educativas y donantes en la "Maratón por los sueños" para apoyar a niños en situación vulnerable.'
-      }
+        description:
+          'Articulación de instituciones educativas y donantes en la "Maratón por los sueños" para apoyar a niños en situación vulnerable.',
+      },
     ]}
-    
   />
 
   <!-- Features2 Widget ************** -->
@@ -95,7 +100,6 @@ const metadata = {
     ]}
   />
 
- 
   <!-- Features2 Widget ************** -->
 
   <Features2
@@ -253,7 +257,8 @@ const metadata = {
     <Fragment slot="title">Sé parte de nuestra visión</Fragment>
 
     <Fragment slot="subtitle">
-      Descubre un entorno de trabajo dinámico, oportunidades de crecimiento inigualables y la posibilidad de generar un impacto significativo.
+      Descubre un entorno de trabajo dinámico, oportunidades de crecimiento inigualables y la posibilidad de generar un
+      impacto significativo.
     </Fragment>
   </CallToAction>
 </Layout>

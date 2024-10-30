@@ -3,7 +3,7 @@
   "compilerOptions": {
     "strictNullChecks": true,
     "allowJs": true,
-    "skipLibCheck": true,  // Añade esta línea
+    "skipLibCheck": true, // Añade esta línea
     "baseUrl": ".",
     "paths": {
       "~/*": ["src/*"]

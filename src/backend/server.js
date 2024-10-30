@@ -6,7 +6,6 @@ import 'dotenv/config';
 
 const accessToken = process.env.ACCESS_TOKEN;
 
-
 // Configura las credenciales de Mercado Pago
 mercadopago.configurations = {
   access_token: accessToken,

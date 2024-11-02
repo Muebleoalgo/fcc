@@ -9,12 +9,13 @@ const { inputs, textarea, disclaimer, button = 'Contáctanos', description = '' 
   {
     inputs &&
       inputs.map(
-        ({ type = 'text', name, label = '', autocomplete = 'on', placeholder = '' }) =>
+        ({ type = 'text', name, label = '', autocomplete = 'on', placeholder = '', required = false }) =>
           name && (
             <div class="mb-6">
               {label && (
                 <label for={name} class="block text-sm font-medium">
                   {label}
+                  {required && <span class="text-red-600 ml-1">*</span>} <!-- Asterisco rojo para campos obligatorios -->
                 </label>
               )}
               <input
@@ -24,6 +25,7 @@ const { inputs, textarea, disclaimer, button = 'Contáctanos', description = '' 
                 autocomplete={autocomplete}
                 placeholder={placeholder}
                 class="py-3 px-4 block w-full text-md rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900"
+                required={required}
               />
             </div>
           )
@@ -35,6 +37,7 @@ const { inputs, textarea, disclaimer, button = 'Contáctanos', description = '' 
       <div>
         <label for="textarea" class="block text-sm font-medium">
           {textarea.label}
+          {textarea.required && <span class="text-red-600 ml-1">*</span>} <!-- Asterisco rojo para campo obligatorio -->
         </label>
         <textarea
           id="textarea"
@@ -42,6 +45,7 @@ const { inputs, textarea, disclaimer, button = 'Contáctanos', description = '' 
           rows={textarea.rows ? textarea.rows : 4}
           placeholder={textarea.placeholder}
           class="py-3 px-4 block w-full text-md rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900"
+          required={textarea.required}
         />
       </div>
     )
@@ -56,11 +60,12 @@ const { inputs, textarea, disclaimer, button = 'Contáctanos', description = '' 
             name="disclaimer"
             type="checkbox"
             class="cursor-pointer mt-1 py-3 px-4 block w-full text-md rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900"
+            required={disclaimer.required}
           />
         </div>
         <div class="ml-3">
           <label for="disclaimer" class="cursor-pointer select-none text-sm text-gray-600 dark:text-gray-400">
-            {disclaimer.label}
+            <span set:html={`${disclaimer.label}${disclaimer.required ? '<span class="text-red-500">*</span>' : ''}`}></span>
           </label>
         </div>
       </div>

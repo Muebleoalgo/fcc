@@ -1,0 +1,73 @@
+---
+import FormContainer from '~/components/ui/Form.astro';
+import Headline from '~/components/ui/Headline.astro';
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import type { Contact as Props } from '~/types';
+
+const {
+  title = await Astro.slots.render('title'),
+  subtitle = await Astro.slots.render('subtitle'),
+  tagline = await Astro.slots.render('tagline'),
+  id,
+  isDark = false,
+  classes = {},
+  bg = await Astro.slots.render('bg'),
+} = Astro.props;
+
+const formFields = {
+  inputs: [
+    { type: "text", name: "nombre", label: "Nombre", placeholder: "Ingresa tu nombre", required: true },
+    { type: "text", name: "apellidos", label: "Apellidos", placeholder: "Ingresa tus apellidos", required: true },
+    { type: "text", name: "dni", label: "DNI", placeholder: "Ingresa tu DNI", required: true },
+    { type: "email", name: "email", label: "Correo Electrónico", placeholder: "Ingresa tu correo electrónico", required: true },
+    { type: "tel", name: "telefono", label: "Teléfono", placeholder: "Ingresa tu número de teléfono", required: true },
+    { type: "date", name: "fecha_nacimiento", label: "Fecha de Nacimiento", required: true },
+    {
+      type: "checkbox-group",
+      name: "areas_interes",
+      label: "Áreas de interés para el voluntariado",
+      options: [
+        "Educación y Alfabetización",
+        "Salud y Bienestar",
+        "Cuidado del Medio Ambiente",
+        "Desarrollo Comunitario",
+        "Asistencia Social",
+        "Deporte y Recreación",
+        "Arte y Cultura",
+        "Apoyo a Personas Mayores",
+        "Apoyo a Niños y Jóvenes",
+        "Capacitación y Empleo",
+        "Eventos y Logística",
+        "Desarrollo Tecnológico",
+        "Recursos Humanos y Gestión de Voluntarios",
+        "Marketing y Comunicación",
+        "Finanzas y Recaudación de Fondos",
+        "Asesoría Legal",
+        "Otros"
+      ],
+      other: true, // Activa la opción de "Otros" con un input adicional
+      required: true
+    },
+    {
+      type: "textarea",
+      name: "experiencia_voluntariado",
+      label: "Experiencia previa en voluntariado (Opcional)",
+      placeholder: "Describe tu experiencia, si tienes alguna",
+      rows: 4
+    }
+  ],
+  disclaimer: {
+    label: 'He leído y acepto la <a href="/privacy" target="_blank" class="underline text-blue-600">política de privacidad y los términos de servicio</a>.',
+    required: true
+  },
+  button: "Enviar Registro"
+};
+---
+
+<WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-7xl mx-auto ${classes?.container ?? ''}`} bg={bg}>
+  <Headline title={title} subtitle={subtitle} tagline={tagline} />
+
+  <div class="flex flex-col max-w-xl mx-auto rounded-lg backdrop-blur border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900 shadow p-4 sm:p-6 lg:p-8 w-full">
+    <FormContainer {...formFields} />
+  </div>
+</WidgetWrapper>

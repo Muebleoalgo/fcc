@@ -16,14 +16,14 @@ const {
   carouselImages = [], 
 } = Astro.props;
 
-
+const isSingleImage = carouselImages.length === 1; // Verifica si solo hay una imagen
 ---
 
 <section class="relative md:-mt-[96px] not-prose" {...id ? { id } : {}}>
   <!-- Carrusel de fondo -->
   <div class="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
     <slot name="bg">
-      <div class="carousel">
+      <div class={isSingleImage ? 'static-image' : 'carousel'}>
         {carouselImages.map((src, index) => (
           <img src={src} alt={`Imagen ${index + 1}`} class="carousel-image" />
         ))}
@@ -97,11 +97,6 @@ const {
 </section>
 
 <style lang="css">
-  .hero-container {
-    position: relative;
-    overflow: hidden;
-  }
-
   .carousel {
     position: absolute;
     top: 0;
@@ -110,6 +105,15 @@ const {
     height: 100%;
     display: flex;
     animation: slide 15s infinite;
+  }
+
+  .static-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
   }
 
   .carousel-image {
@@ -131,11 +135,5 @@ const {
     100% {
       transform: translateX(0%);
     }
-  }
-
-  /* Ajustes para el contenido del Hero sobre el fondo del carrusel */
-  .Hero {
-    position: relative;
-    z-index: 1;
   }
 </style>

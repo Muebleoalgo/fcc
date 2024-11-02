@@ -1,17 +1,71 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
 import VolunteerForm from '~/components/widgets/VolunteerForm.astro';
+import Hero from '~/components/widgets/Hero.astro';
 
 const metadata = {
   title: 'Únete como Voluntario',
   ignoreTitleTemplate: true,
 };
+
+const carouselImages = [
+  '/src/assets/images/nosotros2.jpg', // Puedes incluir más imágenes si es necesario
+];
 ---
 
 <Layout metadata={metadata}>
-  <VolunteerForm 
-    title="Únete como Voluntario"
-    subtitle="Sé parte del cambio en tu comunidad"
-    tagline="Completa el formulario para registrarte como voluntario y unirte a nuestra red."
-  />
+  <!-- Hero con imagen de fondo y opacidad configurada -->
+  <Hero
+    carouselImages={carouselImages}
+  >
+    <!-- Contenedor principal de dos columnas -->
+    <Fragment slot="content">
+      <div class="flex flex-col md:flex-row justify-between items-start gap-8">
+
+        <!-- Columna de título, cita y beneficios -->
+        <div class="max-w-lg">
+          <!-- Título y cita inspiradora -->
+          <h1 class="text-3xl md:text-4xl font-bold leading-tight text-left">
+            Sé el cambio que deseas ver en el mundo
+          </h1>
+          <p class="text-xl font-semibold text-accent dark:text-white mt-2">- Mahatma Gandhi</p>
+
+          <!-- Beneficios -->
+          <div class="mt-6">
+            <p class="font-bold text-lg mb-2">Beneficios de unirse a nuestra red de voluntarios:</p>
+            <ul class="list-disc pl-5 space-y-2">
+              <li>Certificación por horas de voluntariado</li>
+              <li>Desarrollo de habilidades blandas como liderazgo y trabajo en equipo</li>
+              <li>Contribuir al desarrollo de tu comunidad</li>
+              <li>Oportunidad de conocer a personas con intereses similares</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Columna del formulario de voluntariado -->
+        <div class="w-full md:w-1/2 bg-gray-100 dark:bg-gray-800 p-6 rounded-lg shadow-lg">
+          <VolunteerForm 
+            title="Únete como Voluntario"
+            subtitle="Sé parte del cambio en tu comunidad"
+            tagline="Completa el formulario para registrarte como voluntario y unirte a nuestra red"
+          />
+        </div>
+
+      </div>
+    </Fragment>
+  </Hero>
+
+  <!-- Testimonios -->
+  <div class="max-w-7xl mx-auto px-6 py-12">
+    <section class="bg-gray-100 dark:bg-gray-800 p-6 rounded-lg mt-8">
+      <h2 class="text-2xl font-bold mb-4 text-center text-gray-900 dark:text-white">Historias de nuestros voluntarios</h2>
+      <div class="flex flex-col md:flex-row gap-6">
+        <blockquote class="bg-white dark:bg-gray-700 p-4 rounded-lg shadow text-gray-800 dark:text-gray-200">
+          <p class="italic">"Ser voluntario en FCC me permitió crecer como persona y contribuir a mi comunidad."</p>
+          <footer class="mt-4 font-bold">- María López</footer>
+        </blockquote>
+        <!-- Otros testimonios aquí -->
+      </div>
+    </section>
+  </div>
 </Layout>

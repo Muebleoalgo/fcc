@@ -110,6 +110,7 @@ export interface Headline {
   subtitle?: string;
   tagline?: string;
   classes?: Record<string, string>;
+  paddingClass?: string;
 }
 
 interface TeamMember {

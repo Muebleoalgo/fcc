@@ -13,7 +13,7 @@ const { inputs, textarea, disclaimer, button = 'Contáctanos', description = '' 
           name && (
             <div class="mb-6">
               {label && (
-                <label for={name} class="block text-sm font-medium">
+                <label for={name} class="block text-left text-sm font-medium">
                   {label}
                   {required && <span class="text-red-600 ml-1">*</span>} <!-- Asterisco rojo para campos obligatorios -->
                 </label>
@@ -35,7 +35,7 @@ const { inputs, textarea, disclaimer, button = 'Contáctanos', description = '' 
   {
     textarea && (
       <div>
-        <label for="textarea" class="block text-sm font-medium">
+        <label for="textarea" class="block text-left text-sm font-medium">
           {textarea.label}
           {textarea.required && <span class="text-red-600 ml-1">*</span>} <!-- Asterisco rojo para campo obligatorio -->
         </label>
@@ -64,7 +64,7 @@ const { inputs, textarea, disclaimer, button = 'Contáctanos', description = '' 
           />
         </div>
         <div class="ml-3">
-          <label for="disclaimer" class="cursor-pointer select-none text-sm text-gray-600 dark:text-gray-400">
+          <label for="disclaimer" class="cursor-pointer select-none text-left text-sm text-gray-600 dark:text-gray-400">
             <span set:html={`${disclaimer.label}${disclaimer.required ? '<span class="text-red-500">*</span>' : ''}`}></span>
           </label>
         </div>

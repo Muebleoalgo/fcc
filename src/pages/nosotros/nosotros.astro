@@ -10,6 +10,12 @@ import Brands from '~/components/widgets/Brands.astro';
 const metadata = {
   title: 'Nosotros',
 };
+
+const carouselImagesIndex = [
+  '/src/assets/images/nosotros1.jpg',
+  '/src/assets/images/nosotros2.jpg',
+  '/src/assets/images/nosotros3.jpg'
+];
 ---
 
 <Layout metadata={metadata}>
@@ -17,12 +23,13 @@ const metadata = {
 
   <Hero
     tagline="Nosotros"
-    image={{
-      src: 'https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: 'Imagen de la FCC',
-    }}
+    carouselImages={carouselImagesIndex} 
   >
-    <Fragment slot="title"> Promovemos prácticas sostenibles para mejorar la calidad de vida en Cajamarca </Fragment>
+    <Fragment slot="title"> 
+      Promovemos prácticas sostenibles 
+      <span class="text-accent dark:text-white "
+      >Mejoramos la calidad de vida en Cajamarca</span>
+    </Fragment>
 
     <Fragment slot="subtitle">
       La Fundación Comunitaria Cajamarca (FCC) busca generar un impacto positivo en la región mediante el desarrollo

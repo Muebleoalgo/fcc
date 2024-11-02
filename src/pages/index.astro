@@ -16,6 +16,11 @@ const metadata = {
   title: 'FCC: Fundación Comunitaria Cajamarca',
   ignoreTitleTemplate: true,
 };
+const carouselImagesIndex = [
+  '/src/assets/images/proyecto1.jpg',
+  '/src/assets/images/proyecto2.jpg',
+  '/src/assets/images/proyecto3.jpg'
+];
 ---
 
 <Layout metadata={metadata}>
@@ -30,7 +35,8 @@ const metadata = {
       },
       { text: 'Conoce más', href: '#features' },
     ]}
-    image={{ src: '/src/assets/images/logo-fcc.png', alt: 'Logo Fundación Comunitaria Cajamarca' }}
+      image={{ src: '/src/assets/images/logo-fcc.png', alt: 'Logo Fundación Comunitaria Cajamarca' }}
+      carouselImages={carouselImagesIndex} 
   >
     <Fragment slot="title">
       Fundación Comunitaria Cajamarca

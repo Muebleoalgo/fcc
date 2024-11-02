@@ -13,22 +13,20 @@ const {
   image = await Astro.slots.render('image'),
   id,
   bg = await Astro.slots.render('bg'),
+  carouselImages = [], 
 } = Astro.props;
 
-// Define las imágenes para el carrusel
-const carouselImages = [
-  '/src/assets/images/proyecto2.jpg',
-  '/src/assets/images/proyecto1.jpg',
-  '/src/assets/images/proyecto3.jpg',
-];
+
 ---
 
-<section class="relative md:-mt-[95px] not-prose" {...id ? { id } : {}}>
+<section class="relative md:-mt-[96px] not-prose" {...id ? { id } : {}}>
   <!-- Carrusel de fondo -->
   <div class="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
     <slot name="bg">
       <div class="carousel">
-        {carouselImages.map((src, index) => <img src={src} alt={`Imagen ${index + 1}`} class="carousel-image" />)}
+        {carouselImages.map((src, index) => (
+          <img src={src} alt={`Imagen ${index + 1}`} class="carousel-image" />
+        ))}
       </div>
     </slot>
   </div>

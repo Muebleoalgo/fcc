@@ -8,27 +8,42 @@ const { inputs, textarea, disclaimer, button = 'Contáctanos', description = '' 
 <form>
   {
     inputs &&
-      inputs.map(
-        ({ type = 'text', name, label = '', autocomplete = 'on', placeholder = '', required = false }) =>
-          name && (
-            <div class="mb-6">
-              {label && (
-                <label for={name} class="block text-left text-sm font-medium">
-                  {label}
-                  {required && <span class="text-red-600 ml-1">*</span>} <!-- Asterisco rojo para campos obligatorios -->
-                </label>
-              )}
-              <input
-                type={type}
-                name={name}
-                id={name}
-                autocomplete={autocomplete}
-                placeholder={placeholder}
-                class="py-3 px-4 block w-full text-md rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900"
-                required={required}
-              />
-            </div>
-          )
+      inputs.map(({ type = 'text', name, label = '', autocomplete = 'on', placeholder = '', required = false, options = [], multiple = false }) =>
+        name && (
+          <div class="mb-6">
+            {label && (
+              <label for={name} class="block text-left text-sm font-medium">
+                {label}
+                {required && <span class="text-red-600 ml-1">*</span>} <!-- Asterisco rojo para campos obligatorios -->
+              </label>
+            )}
+            {
+              type === 'select' ? (
+                <select
+                  name={name}
+                  id={name}
+                  multiple={multiple}
+                  class="py-3 px-4 block w-full text-md rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900"
+                  required={required}
+                >
+                  {options.map(option => (
+                    <option value={option.value}>{option.label}</option>
+                  ))}
+                </select>
+              ) : (
+                <input
+                  type={type}
+                  name={name}
+                  id={name}
+                  autocomplete={autocomplete}
+                  placeholder={placeholder}
+                  class="py-3 px-4 block w-full text-md rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900"
+                  required={required}
+                />
+              )
+            }
+          </div>
+        )
       )
   }
 

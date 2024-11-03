@@ -55,11 +55,22 @@ Dentro del proyecto, verás la siguiente estructura de carpetas y archivos:
 ├── .vscode/
 ├── node_modules/
 ├── public/
+│   ├── decapcms/
+│   │   ├── config.yml
+│   │   └── index.html
+│   ├── _headers
+│   └── robots.txt
 ├── src/
 │   ├── assets/
+│   │   ├── favicons/
+│   │   ├── images/
+│   │   └── styles/
+│   │       └── tailwind.css
 │   ├── backend/
 │   │   └── routes/
-│   │       └── server.js
+│   │       ├── database.js
+│   │       ├── server.js
+│   │       └── submitVolunteer.js
 │   ├── components/
 │   │   ├── blog/
 │   │   │   ├── Grid.astro
@@ -95,11 +106,15 @@ Dentro del proyecto, verás la siguiente estructura de carpetas y archivos:
 │   │   │   ├── Timeline.astro
 │   │   │   └── WidgetWrapper.astro
 │   │   └── widgets/
-├── layouts/
-│   ├── LandingLayout.astro
-│   ├── Layout.astro
-│   ├── MarkdownLayout.astro
-│   └── PageLayout.astro
+│   │       ├── CustomStyles.astro
+│   │       ├── Favicons.astro
+│   │       └── Logo.astro
+│   ├── content/
+│   ├── layouts/
+│   │   ├── LandingLayout.astro
+│   │   ├── Layout.astro
+│   │   ├── MarkdownLayout.astro
+│   │   └── PageLayout.astro
 │   ├── pages/
 │   │   ├── [...blog]/
 │   │   │   ├── [category]/
@@ -116,8 +131,8 @@ Dentro del proyecto, verás la siguiente estructura de carpetas y archivos:
 │   │   │   ├── mobile-app.astro
 │   │   │   ├── personal.astro
 │   │   │   ├── saas.astro
-│   │   │   ├── startup.astro
-│   │   └── landing/
+│   │   │   └── startup.astro
+│   │   ├── landing/
 │   │   ├── nosotros/
 │   │   │   ├── equipo.astro
 │   │   │   ├── historia.astro
@@ -128,6 +143,9 @@ Dentro del proyecto, verás la siguiente estructura de carpetas y archivos:
 │   │   │   ├── proyectos_completados.astro
 │   │   │   └── proyectos.astro
 │   │   ├── voluntarios/
+│   │       ├── eventos.astro
+│   │       ├── unete_voluntario.astro
+│   │       └── voluntarios.astro
 │   │   ├── 404.astro
 │   │   ├── about.astro
 │   │   ├── contact.astro
@@ -138,12 +156,22 @@ Dentro del proyecto, verás la siguiente estructura de carpetas y archivos:
 │   │   ├── services.astro
 │   │   └── terms.md
 │   ├── utils/
+│   │   ├── blog.ts
 │   │   ├── config.yaml
+│   │   ├── directories.ts
 │   │   ├── env.d.ts
+│   │   ├── frontmatter.ts
+│   │   ├── images-optimization.ts
+│   │   ├── images.ts
 │   │   ├── navigation.ts
-│   │   └── types.d.ts
-├── vendor/
-│   └── integration/
+│   │   ├── permalinks.ts
+│   │   ├── types.d.ts
+│   └── vendor/
+│       └── integration/
+│           └── utils/
+│               ├── configBuilder.ts
+│               ├── loadConfig.ts
+│               └── types.d.ts
 ├── .editorconfig
 ├── .env
 ├── .gitignore
@@ -162,6 +190,7 @@ Dentro del proyecto, verás la siguiente estructura de carpetas y archivos:
 ├── tailwind.config.js
 ├── tsconfig.json
 └── vercel.json
+
 ```
 
 ## 📄 Licencia

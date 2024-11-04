@@ -217,6 +217,7 @@ export interface Form {
   disclaimer?: Disclaimer;
   button?: string;
   description?: string;
+  onSubmit?: (event: Event) => void;
 }
 
 // WIDGETS

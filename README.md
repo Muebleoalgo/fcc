@@ -67,10 +67,17 @@ Dentro del proyecto, verás la siguiente estructura de carpetas y archivos:
 │   │   └── styles/
 │   │       └── tailwind.css
 │   ├── backend/
-│   │   └── routes/
-│   │       ├── database.js
-│   │       ├── server.js
-│   │       └── submitVolunteer.js
+│   │   ├── controllers/          # Lógica de negocio (controladores para cada módulo)
+│   │   │   └── volunteerController.js
+│   │   ├── models/               # Definición de esquemas de Mongoose para cada colección
+│   │   │   └── volunteerModel.js
+│   │   ├── routes/               # Define las rutas de cada recurso (voluntarios, pagos)
+│   │   │   ├── volunteer.routes.js
+│   │   │   └── payment.routes.js
+│   │   ├── services/             # Servicios de lógica auxiliar (si tienes alguna lógica compleja)
+│   │   ├── utils/                # Utilidades como conexión a la base de datos y middlewares
+│   │   │   └── database.js       # Configuración de la conexión a MongoDB
+│   │   └── server.js             # Archivo principal que inicializa y configura el servidor
 │   ├── components/
 │   │   ├── blog/
 │   │   │   ├── Grid.astro

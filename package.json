@@ -36,6 +36,7 @@
     "lodash.merge": "^4.6.2",
     "mercadopago": "^2.0.15",
     "mongodb": "^6.10.0",
+    "react-hook-form": "^7.53.1",
     "unpic": "^3.18.0"
   },
   "devDependencies": {
@@ -64,6 +65,7 @@
     "@typescript-eslint/parser": "^8.6.0",
     "astro-compress": "2.3.1",
     "astro-eslint-parser": "^1.0.3",
+    "cors": "^2.8.5",
     "eslint": "^9.10.0",
     "eslint-plugin-astro": "^1.2.4",
     "globals": "^15.9.0",

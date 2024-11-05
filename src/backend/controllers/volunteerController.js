@@ -9,6 +9,11 @@ export const createVolunteer = async (req, res) => {
     await newVolunteer.save();
     res.status(201).json({ success: true, message: 'Voluntario registrado exitosamente.' });
   } catch (error) {
+    if (error.code === 11000) { // Código de error para duplicados en MongoDB
+      const duplicatedField = Object.keys(error.keyPattern)[0];
+      const errorMessage = `El ${duplicatedField} ya está registrado en la base de datos.`;
+      return res.status(400).json({ success: false, message: errorMessage });
+    }
     if (error.name === 'ValidationError') {
       const errors = Object.values(error.errors).map(err => err.message);
       return res.status(400).json({ success: false, message: 'Error al registrar voluntario.', errors });

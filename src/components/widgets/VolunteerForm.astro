@@ -1,5 +1,4 @@
 ---
-// VolunteerForm.astro
 import FormContainer from '~/components/ui/Form.astro';
 import Headline from '~/components/ui/Headline.astro';
 import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
@@ -77,7 +76,7 @@ const formFields = {
 
 <script>
   const form = document.querySelector<HTMLFormElement>('#volunteerForm');
-  
+
   if (form) {
     form.addEventListener('submit', async (event: SubmitEvent) => {
       event.preventDefault();
@@ -101,8 +100,10 @@ const formFields = {
 
         if (result.success) {
           alert("¡Registro exitoso!");
+          form.reset(); // Limpiar el formulario después de un registro exitoso
         } else {
-          alert("Hubo un problema al registrar: " + result.message);
+          // Mostrar el mensaje de error como alerta
+          alert(result.message);
         }
       } catch (error) {
         console.error("Error al enviar el formulario:", error);

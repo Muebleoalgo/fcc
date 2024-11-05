@@ -4,6 +4,7 @@ import Volunteer from '../models/volunteerModel.js';
 // Crear un nuevo voluntario (Create)
 export const createVolunteer = async (req, res) => {
   try {
+    console.log("Datos recibidos:", req.body); // Log para ver los datos
     const newVolunteer = new Volunteer(req.body);
     await newVolunteer.save();
     res.status(201).json({ success: true, message: 'Voluntario registrado exitosamente.' });

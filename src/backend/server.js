@@ -12,7 +12,10 @@ const app = express();
 const PORT = process.env.PORT || 5001;
 
 // Usa CORS para permitir todas las solicitudes
-app.use(cors());
+app.use(cors({
+  origin: 'http://localhost:4321', // Asegúrate que este URL sea correcto
+  credentials: true
+}));
 
 // Conectar a la base de datos
 connectToDatabase();

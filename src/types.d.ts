@@ -163,20 +163,24 @@ export interface Testimonial {
 }
 
 export interface Input {
-  type: HTMLInputTypeAttribute | 'select';
+  type: HTMLInputTypeAttribute;
   name: string;
   label?: string;
+  value?: string;
   autocomplete?: string;
   placeholder?: string;
   required?: boolean;
   options?: { value: string; label: string }[];
   multiple?: boolean;
+  other?: boolean;
+  rows?: number;
 }
 
 
 export interface Textarea {
   label?: string;
-  name?: string;
+  name: string;
+  value?: string;
   placeholder?: string;
   rows?: number;
   required?: boolean;
@@ -185,6 +189,7 @@ export interface Textarea {
 export interface Disclaimer {
   label?: string;
   required?: boolean;
+  text?: string;
 }
 
 // COMPONENTS
@@ -217,7 +222,46 @@ export interface Form {
   disclaimer?: Disclaimer;
   button?: string;
   description?: string;
-  onSubmit?: (event: Event) => void;
+  onSubmit?: (event: SubmitEvent) => void; 
+
+  // Propiedades de formulario
+  id?: string;
+  action?: string;
+  method?: 'get' | 'post' | 'dialog'; // Tipos específicos de method
+}
+
+export interface FormProps {
+  id?: string;
+  action?: string;
+  method?: 'get' | 'post' | 'dialog';
+  inputs?: Array<Input>;
+  textarea?: Textarea;
+  disclaimer?: Disclaimer;
+  button?: string;
+  description?: string;
+  onSubmit?: (event: SubmitEvent & { currentTarget: HTMLFormElement }) => void;
+}
+
+// Tipo de utilidad para manejar el evento del formulario
+export type FormSubmitHandler = (e: SubmitEvent & { 
+  currentTarget: HTMLFormElement;
+  target: HTMLFormElement;
+}) => void;
+
+// Tipo de utilidad para el elemento del formulario
+export type FormElement = HTMLFormElement & {
+  reset: () => void;
+};
+
+// Interfaz para el evento de formulario
+export interface FormEvent extends SubmitEvent {
+  currentTarget: HTMLFormElement;
+  target: HTMLFormElement;
+}
+
+// Helper type para el reset del formulario
+export interface FormWithReset extends HTMLFormElement {
+  reset: () => void;
 }
 
 // WIDGETS

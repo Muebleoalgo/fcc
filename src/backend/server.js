@@ -31,3 +31,6 @@ app.use('/api/volunteers', volunteerRoutes);
 app.listen(PORT, () => {
   console.log(`Servidor corriendo en el puerto ${PORT}`);
 });
+
+
+// Iniciar servidor:  node src/backend/server.js

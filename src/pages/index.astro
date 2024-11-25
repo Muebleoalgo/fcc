@@ -52,7 +52,7 @@ const carouselImagesIndex = [
     </Fragment>
 
     <Fragment slot="subtitle">
-      Fomentamos prácticas sostenibles para mejorar la calidad de vida en Cajamarca, canalizando recursos y apoyando
+      Fomentamos la articulación interinstitucional para mejorar la calidad de vida en Cajamarca, canalizando recursos y apoyando
       proyectos enfocados en educación, salud y otras necesidades esenciales
     </Fragment>
   </Hero>
@@ -64,10 +64,16 @@ const carouselImagesIndex = [
 
   <Features
     id="features"
-    tagline="Nuestros Valores"
-    title="Lo que impulsa nuestro trabajo"
-    subtitle="La Fundación Comunitaria Cajamarca trabaja bajo estos principios fundamentales para el desarrollo de nuestras comunidades."
+    tagline="¿Qué hacemos?"
+    title="Conectamos cajamarquinos con punche"
+    subtitle="La Fundación Comunitaria Cajamarca traza puentes entre instituciones y la sociedad civil buscando el desarrollo de nuestras comunidades."
     items={[
+      {
+        title: 'Articulación',
+        description:
+          'Gestamos alianzas estratégicas con organizaciones locales e internacionales para maximizar el impacto de nuestros proyectos.',
+        icon: 'tabler:users',
+      },
       {
         title: 'Transparencia',
         description:
@@ -79,12 +85,6 @@ const carouselImagesIndex = [
         description:
           'Nos enfocamos en proyectos que puedan generar cambios duraderos y que respeten el medio ambiente y los recursos locales.',
         icon: 'tabler:leaf',
-      },
-      {
-        title: 'Alianzas Estratégicas',
-        description:
-          'Colaboramos con organizaciones locales e internacionales para maximizar el impacto de nuestros proyectos.',
-        icon: 'tabler:users',
       },
       {
         title: 'Compromiso Comunitario',
@@ -105,12 +105,12 @@ const carouselImagesIndex = [
       {
         title: 'Maratón por los sueños',
         description:
-          'Un evento que reunió a la comunidad para apoyar proyectos educativos, recaudando fondos para la Escuela Jesús Trabajador.',
+          'Un evento que reunió a la comunidad cajamarquina a través del deporte, recaudando fondos para la Escuela Jesús Trabajador.',
       },
       {
         title: 'Talleres para organizaciones de la sociedad civil',
         description:
-          'Capacitando a organizaciones locales para mejorar su gestión y sostenibilidad. Próximo taller: "Estrategias de articulación interinstitucional" en el Hotel Sol de Belén, 9 de octubre.',
+          'Capacitando a organizaciones locales para mejorar su gestión y sostenibilidad.',
       },
     ]}
     image={{
@@ -163,6 +163,11 @@ const carouselImagesIndex = [
     classes={{ container: 'max-w-6xl' }}
     items={[
       {
+        title: '¿Qué es un fondo comunitario?',
+        description:
+          'Un conjunto de recursos financieros sostenido por donaciones, administrado por la FCC con el objetivo de desarrollar proyectos comunitarios.',
+      },
+      {
         title: '¿Cómo puedo donar?',
         description:
           'Puedes donar de manera directa a través de nuestra página de donaciones, eligiendo un proyecto específico o haciendo una donación general.',
@@ -177,6 +182,7 @@ const carouselImagesIndex = [
         description:
           'Estamos abiertos a recibir propuestas que beneficien a las comunidades de Cajamarca. Puedes contactarnos directamente a través del formulario de contacto.',
       },
+      
     ]}
   />
 </Layout>

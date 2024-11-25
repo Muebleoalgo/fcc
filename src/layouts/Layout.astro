@@ -12,6 +12,7 @@ import SiteVerification from '~/components/common/SiteVerification.astro';
 import Analytics from '~/components/common/Analytics.astro';
 import BasicScripts from '~/components/common/BasicScripts.astro';
 import BotonWpp from '~/components/widgets/BotonWpp.astro'; // Importa el botón de WhatsApp
+import BotonSubir from '~/components/widgets/BotonSubir.astro'; // Importa el botón de subir
 
 // Comment the line below to disable View Transitions
 import { ViewTransitions } from 'astro:transitions';
@@ -44,8 +45,10 @@ const { language, textDirection } = I18N;
   <body class="antialiased text-default bg-page tracking-tight">
     <slot />
 
-    <!-- Añade el botón de WhatsApp flotante aquí -->
-    <BotonWpp />
+    <!--  <BotonWpp /> -->
+   
+    <BotonSubir/>
+
 
     <BasicScripts />
   </body>

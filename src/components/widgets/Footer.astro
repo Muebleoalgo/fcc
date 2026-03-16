@@ -23,7 +23,6 @@ export interface Props {
 }
 
 const { socialLinks = [], secondaryLinks = [], links = [], footNote = '', theme = 'light' } = Astro.props;
-const logoSrc = '/src/assets/images/logo-fcc.png';
 ---
 
 <footer class:list={[{ dark: theme === 'dark' }, 'relative border-t border-gray-200 dark:border-slate-800 not-prose']}>
@@ -32,7 +31,16 @@ const logoSrc = '/src/assets/images/logo-fcc.png';
     <div class="grid grid-cols-12 gap-4 gap-y-4 py-4 md:py-6">
       <div class="col-span-12 lg:col-span-2 text-left"> <!-- Cambiado a text-left -->
         <a href={getHomePermalink()}>
-          <img src={logoSrc} alt="Logo FCC" class="h-12" />
+          <img
+            src="/images/logo-fcc-color.png"
+            alt="Logo FCC"
+            class="block dark:hidden h-12 w-auto"
+          />
+          <img
+            src="/images/logo-fcc.png"
+            alt="Logo FCC"
+            class="hidden dark:block h-12 w-auto"
+          />
         </a><br />
         <div class="text-sm text-muted flex gap-1 justify-start mt-1"> <!-- Cambiado a justify-start -->
           {

@@ -25,7 +25,7 @@ const isSingleImage = carouselImages.length === 1; // Verifica si solo hay una i
     <slot name="bg">
       <div class={isSingleImage ? 'static-image' : 'carousel'}>
         {carouselImages.map((src, index) => (
-          <img src={src} alt={`Imagen ${index + 1}`} class="carousel-image" />
+          <img src={src} alt={`Imagen ${index + 1}`} class="carousel-image w-full h-full object-cover object-center" />
         ))}
       </div>
     </slot>
@@ -79,7 +79,7 @@ const isSingleImage = carouselImages.length === 1; // Verifica si solo hay una i
                 <Fragment set:html={image} />
               ) : (
                 <Image
-                  class="mx-auto rounded-md w-full"
+                  class="mx-auto rounded-md w-full h-full object-cover object-center"
                   widths={[400, 768, 1024, 2040]}
                   sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
                   loading="eager"
@@ -117,8 +117,10 @@ const isSingleImage = carouselImages.length === 1; // Verifica si solo hay una i
   }
 
   .carousel-image {
-    min-width: 100%;
-    height: auto;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
     opacity: 0.6; /* Ajusta la opacidad para que el texto sea más visible */
   }
 

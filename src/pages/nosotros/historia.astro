@@ -7,7 +7,6 @@ import CallToAction from '~/components/widgets/CallToAction.astro';
 import Features2 from '~/components/widgets/Features2.astro';
 import Features from '~/components/widgets/Features.astro';
 import Stats from '~/components/widgets/Stats.astro';
-import Features3 from '~/components/widgets/Features3.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import Timeline from '~/components/ui/Timeline.astro';
 
@@ -95,7 +94,7 @@ const metadata = {
     stats={[
       { title: 'Años de trabajo', amount: '2' },
       { title: 'Comunidades impactadas', amount: '2' },
-      { title: 'Personas beneficiadas', amount: '+ 300' },
+      { title: 'Personas beneficiadas', amount: '300' },
       { title: 'Talleres y Eventos organizados', amount: '5' },
     ]}
   />
@@ -193,55 +192,7 @@ const metadata = {
 
   <!-- Features3 Widget ************** -->
 
-  <Features3
-    title="Contáctanos"
-    subtitle="Estamos aquí para ayudarte y responder cualquier pregunta que puedas tener."
-    columns={4}
-    items={[
-      {
-        title: 'Teléfono',
-        icon: 'tabler:phone',
-        callToAction: {
-          target: '_blank',
-          text: 'Llámanos',
-          href: '/',
-          variant: 'link',
-        },
-      },
-      {
-        title: 'Correo electrónico',
-        icon: 'tabler:mail',
-        callToAction: {
-          target: '_blank',
-          text: 'Escríbenos',
-          href: '/',
-          variant: 'link',
-        },
-      },
-      {
-        title: 'Chat con ventas',
-        icon: 'tabler:message-circle',
-        callToAction: {
-          target: '_blank',
-          text: 'Iniciar chat',
-          href: '/',
-          variant: 'link',
-        },
-      },
-      {
-        title: 'Chat con soporte',
-        icon: 'tabler:message-circle',
-        callToAction: {
-          target: '_blank',
-          text: 'Iniciar chat',
-          href: '/',
-          variant: 'link',
-        },
-      },
-    ]}
-  />
-
-  <!-- CallToAction Widget *********** -->
+   <!-- CallToAction Widget *********** -->
 
   <CallToAction
     actions={[

@@ -108,6 +108,7 @@ const {
             </li>
           </ul>
         </li>
+        <!--
         <li class="dropdown">
           <a href="/donaciones/iniciativas" class="hover:text-link dark:hover:text-white px-4 py-3 flex items-center">
             Iniciativas
@@ -130,28 +131,8 @@ const {
             </li>
           </ul>
         </li>
-        <li class="dropdown">
-          <a href="/voluntarios/voluntarios" class="hover:text-link dark:hover:text-white px-4 py-3 flex items-center">
-            Voluntarios
-            <Icon name="tabler:chevron-down" class="w-3.5 h-3.5 ml-0.5 rtl:ml-0 rtl:mr-0.5 hidden md:inline" />
-          </a>
-          <ul
-            class="dropdown-menu md:backdrop-blur-md dark:md:bg-dark rounded md:absolute pl-4 md:pl-0 md:hidden font-medium md:bg-white/90 md:min-w-[200px] drop-shadow-xl"
-          >
-            <li>
-              <a
-                class="py-2 px-5 block whitespace-no-wrap hover:text-link dark:hover:text-white dark:hover:bg-gray-700"
-                href="/voluntarios/unete_voluntario">Únete como voluntario</a
-              >
-            </li>
-            <li>
-              <a
-                class="py-2 px-5 block whitespace-no-wrap hover:text-link dark:hover:text-white dark:hover:bg-gray-700"
-                href="/voluntarios/eventos">Eventos de Voluntariado</a
-              >
-            </li>
-          </ul>
-        </li>
+        -->
+        
         <li class="dropdown">
           <a href="/proyectos/proyectos" class="hover:text-link dark:hover:text-white px-4 py-3 flex items-center">
             Proyectos
@@ -174,6 +155,30 @@ const {
             </li>
           </ul>
         </li>
+        <li class="dropdown">
+          <a href="/voluntarios/voluntarios" class="hover:text-link dark:hover:text-white px-4 py-3 flex items-center">
+            Voluntarios
+             <!-- <Icon name="tabler:chevron-down" class="w-3.5 h-3.5 ml-0.5 rtl:ml-0 rtl:mr-0.5 hidden md:inline" /> -->
+          </a>
+          <!--
+          <ul
+            class="dropdown-menu md:backdrop-blur-md dark:md:bg-dark rounded md:absolute pl-4 md:pl-0 md:hidden font-medium md:bg-white/90 md:min-w-[200px] drop-shadow-xl"
+          >
+            <li>
+              <a
+                class="py-2 px-5 block whitespace-no-wrap hover:text-link dark:hover:text-white dark:hover:bg-gray-700"
+                href="/voluntarios/unete_voluntario">Únete como voluntario</a
+              >
+            </li>
+            <li>
+              <a
+                class="py-2 px-5 block whitespace-no-wrap hover:text-link dark:hover:text-white dark:hover:bg-gray-700"
+                href="/voluntarios/eventos">Eventos de Voluntariado</a
+              >
+            </li>
+          </ul>
+           -->
+        </li>
         <li>
           <a href="/contact" class="hover:text-link dark:hover:text-white px-4 py-3 flex items-center"> Contáctanos </a>
         </li>
@@ -193,7 +198,9 @@ const {
         </div>
         
         <span class="ml-4 rtl:ml-0 rtl:mr-4">
-          <BotonDonaAhora />
+          <div class="bg-accent text-white inline-block rounded-md">
+            <BotonDonaAhora />
+          </div>
         </span>
       </div>
     </div>

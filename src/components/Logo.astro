@@ -1,9 +1,19 @@
 ---
 import { SITE } from 'astrowind:config';
-const logoSrc = '/src/assets/images/logo-fcc.png'; // Asegúrate que este sea el path correcto del logo
+// Rutas de los logos para modo claro (color) y modo oscuro (blanco)
+const logoColorSrc = '/images/logo-fcc-color.png';
+const logoWhiteSrc = '/images/logo-fcc.png';
 ---
 
 <span class="self-center ml-2 rtl:ml-0 rtl:mr-2">
-  <img src={logoSrc} alt={SITE?.name} class="h-12" />
-  <!-- Aquí cargamos el logo de la FCC -->
+  <img
+    src={logoColorSrc}
+    alt={SITE?.name || 'Logo de la Fundación Comunitaria Cajamarca'}
+    class="h-12 w-auto block dark:hidden"
+  />
+  <img
+    src={logoWhiteSrc}
+    alt={SITE?.name || 'Logo de la Fundación Comunitaria Cajamarca'}
+    class="h-12 w-auto hidden dark:block"
+  />
 </span>

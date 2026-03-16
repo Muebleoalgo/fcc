@@ -109,6 +109,7 @@ export const footerData = {
         { text: 'Nuestra Historia', href: '/nosotros/historia' },
       ],
     },
+/*
     {
       title: 'INICIATIVAS ',
       links: [
@@ -116,12 +117,14 @@ export const footerData = {
         { text: 'Fondos', href: '/donaciones/fondos' },
       ],
     },
+*/
     {
       title: 'VOLUNTARIADO',
+      
       links: [
-        { text: 'Únete como voluntario', href: '/voluntarios/unete_voluntario' },
+      /*  { text: 'Únete como voluntario', href: '/voluntarios/unete_voluntario' },
         { text: 'Eventos de voluntariado', href: '/voluntarios/eventos' },
-      ],
+      */],
     },
     {
       title: 'PROYECTOS',

@@ -4,135 +4,27 @@ import Layout from '~/layouts/PageLayout.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import Note from '~/components/widgets/Note.astro';
 import Features from '~/components/widgets/Features.astro';
-//import Features2 from '~/components/widgets/Features2.astro';
-//import Steps from '~/components/widgets/Steps.astro';
 import Content from '~/components/widgets/Content.astro';
-//import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import Stats from '~/components/widgets/Stats.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 
 const metadata = {
-  title: 'FCC: Fundación Comunitaria Cajamarca',
+  title: 'Fundación Comunitaria Cajamarca | Conectando nuestra región',
   ignoreTitleTemplate: true,
 };
+
+// Rutas actualizadas para apuntar a la carpeta public/ y evitar que se rompan en producción
 const carouselImagesIndex = [
-  '/src/assets/images/proyecto1.webp',
-  '/src/assets/images/proyecto2.webp',
-  '/src/assets/images/proyecto3.webp'
+  '/images/proyecto1.webp',
+  '/images/proyecto2.webp',
+  '/images/proyecto3.webp'
 ];
 ---
 
 <Layout metadata={metadata}>
-  <!-- Hero Widget ******************* -->
-
+  
   <Hero
-    actions={[
-      {
-        text: 'Quiénes somos',
-        href: '#features',
-        target: '_self',
-      },
-      { text: 'Conoce más', href: '#features' },
-    ]}
-    
-
-    image={{ src: '/src/assets/images/logo-fcc.png', alt: 'Logo Fundación Comunitaria Cajamarca' }}  
-      carouselImages={carouselImagesIndex} 
-  >
-
-  <!-- Esto va arriba, antes de cerrar el HERO -->
-
- 
-    <Fragment slot="title">
-      Fundación Comunitaria Cajamarca
-      <span class="text-accent dark:text-white "
-        >Conectando a los cajamarquinos</span
-      >
-    </Fragment>
-
-    <Fragment slot="subtitle">
-      Fomentamos la articulación interinstitucional para mejorar la calidad de vida en Cajamarca, canalizando recursos y apoyando
-      proyectos enfocados en educación, salud y otras necesidades esenciales
-    </Fragment>
-  </Hero>
-
-  <!-- Note Widget ******************* -->
-  <Note />
-
-  <!-- Features Widget *************** -->
-
-  <Features
-    id="features"
-    tagline="¿Qué hacemos?"
-    title="Conectamos cajamarquinos con punche"
-    subtitle="La Fundación Comunitaria Cajamarca traza puentes entre instituciones y la sociedad civil buscando el desarrollo de nuestras comunidades."
-    items={[
-      {
-        title: 'Articulación',
-        description:
-          'Gestamos alianzas estratégicas con organizaciones locales e internacionales para maximizar el impacto de nuestros proyectos.',
-        icon: 'tabler:users',
-      },
-      {
-        title: 'Transparencia',
-        description:
-          'Nos aseguramos de que todos los procesos sean claros y accesibles, manteniendo la confianza de nuestros aliados y donantes.',
-        icon: 'tabler:shield-check',
-      },
-      {
-        title: 'Sostenibilidad',
-        description:
-          'Nos enfocamos en proyectos que puedan generar cambios duraderos y que respeten el medio ambiente y los recursos locales.',
-        icon: 'tabler:leaf',
-      },
-      {
-        title: 'Compromiso Comunitario',
-        description:
-          'Trabajamos directamente con las comunidades para entender y atender sus necesidades más urgentes.',
-        icon: 'tabler:user-plus',
-      },
-    ]}
-  />
-
-  <!-- Content Widget **************** -->
-
-  <Content
-    isReversed
-    tagline="Proyectos Destacados"
-    title="Nuestros esfuerzos en acción"
-    items={[
-      {
-        title: 'Maratón por los sueños',
-        description:
-          'Un evento que reunió a la comunidad cajamarquina a través del deporte, recaudando fondos para la Escuela Jesús Trabajador.',
-      },
-      {
-        title: 'Talleres para organizaciones de la sociedad civil',
-        description:
-          'Capacitando a organizaciones locales para mejorar su gestión y sostenibilidad.',
-      },
-    ]}
-    image={{
-      src: '/src/assets/images/proyectos-fcc.webp',
-      alt: 'Proyectos comunitarios en Cajamarca',
-    }}
-  />
-
-  <!-- Stats Widget ****************** -->
-
-  <Stats
-    stats={[
-      { title: 'Proyectos Articulados', amount: 2 },
-      { title: 'Recursos Movilizados (S/)', amount: 5000 },
-      { title: 'Personas Impactadas', amount: 300 },
-      { title: 'Actores Aliados', amount: 10 },
-    ]}
-  />
-
-  <!-- CallToAction Widget *********** -->
-
-  <CallToAction
     actions={[
       {
         variant: 'primary',
@@ -141,48 +33,131 @@ const carouselImagesIndex = [
         target: '_self',
         icon: 'tabler:heart',
       },
+      { text: 'Conoce nuestro impacto', href: '#impacto' },
+    ]}
+    carouselImages={carouselImagesIndex}
+  >
+    <Fragment slot="title">
+      Fundación Comunitaria Cajamarca
+      <span class="text-accent dark:text-white block text-4xl md:text-5xl mt-2"
+        >Conectando a los cajamarquinos</span
+      >
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      Canalizamos recursos y articulamos alianzas para impulsar proyectos en educación, salud y desarrollo que transforman vidas en nuestra región.
+    </Fragment>
+  </Hero>
+
+  <Stats
+    id="impacto"
+    title="Nuestro impacto en números"
+    subtitle="La transparencia y los resultados son nuestra mejor carta de presentación."
+    stats={[
+      { title: 'Proyectos Articulados', amount: 2 },
+      { title: 'Soles Movilizados', amount: 5000 },
+      { title: 'Vidas Impactadas', amount: 300 },
+      { title: 'Aliados Estratégicos', amount: 10 },
+    ]}
+  />
+
+  <Note />
+
+  <Features
+    id="metodologia"
+    tagline="Nuestra Metodología"
+    title="Puentes para el desarrollo"
+    subtitle="Trabajamos codo a codo con la sociedad civil y el sector privado para garantizar que la ayuda llegue donde más se necesita."
+    items={[
       {
-        text: 'Únete a nuestra red de voluntarios',
+        title: 'Articulación',
+        description: 'Gestamos alianzas locales e internacionales para multiplicar el impacto de cada iniciativa.',
+        icon: 'tabler:users',
+      },
+      {
+        title: 'Transparencia',
+        description: 'Trazabilidad total de los fondos. Procesos claros para mantener la confianza de nuestros donantes.',
+        icon: 'tabler:shield-check',
+      },
+      {
+        title: 'Sostenibilidad',
+        description: 'No hacemos asistencialismo; impulsamos proyectos con visión a largo plazo y respeto al entorno.',
+        icon: 'tabler:leaf',
+      },
+      {
+        title: 'Acción Comunitaria',
+        description: 'Escuchamos primero. Actuamos en base a las necesidades reales diagnosticadas por la propia comunidad.',
+        icon: 'tabler:user-plus',
+      },
+    ]}
+  />
+
+  <Content
+    isReversed
+    tagline="Casos de Éxito"
+    title="El esfuerzo en acción"
+    items={[
+      {
+        title: 'Maratón por los Sueños',
+        description: 'Movilización deportiva comunitaria que logró financiar mejoras cruciales para la Escuela Jesús Trabajador.',
+        icon: 'tabler:run',
+      },
+      {
+        title: 'Fortalecimiento Institucional',
+        description: 'Talleres estratégicos para potenciar la gestión y sostenibilidad de diversas organizaciones civiles cajamarquinas.',
+        icon: 'tabler:building-community',
+      },
+    ]}
+    image={{
+      src: '/images/proyectos-fcc.webp', // Actualizado a la carpeta public
+      alt: 'Voluntarios de la Fundación Comunitaria Cajamarca en acción',
+    }}
+  />
+
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Dona ahora',
+        href: '/donaciones/donaciones',
+        target: '_self',
+        icon: 'tabler:gift',
+      },
+      {
+        text: 'Sé voluntario',
         href: '/voluntarios/voluntarios',
+        icon: 'tabler:hand-stop',
       },
     ]}
   >
-    <Fragment slot="title"> ¡Súmate a nuestra causa! </Fragment>
-
+    <Fragment slot="title"> El cambio empieza aquí </Fragment>
     <Fragment slot="subtitle">
-      Apóyanos para continuar mejorando las condiciones de vida de las comunidades de Cajamarca.
+      Tu aporte, ya sea en tiempo o recursos, es el motor que mantiene viva nuestra labor en Cajamarca. ¿Te sumas?
     </Fragment>
   </CallToAction>
 
-  <!-- FAQs Widget ******************* -->
-
   <FAQs
     title="Preguntas Frecuentes"
-    subtitle="Resuelve tus dudas sobre cómo puedes ayudar o participar en nuestra misión."
-    tagline="FAQs"
-    classes={{ container: 'max-w-6xl' }}
+    subtitle="Todo lo que necesitas saber para empezar a colaborar."
+    tagline="Transparencia"
+    classes={{ container: 'max-w-5xl' }}
     items={[
       {
         title: '¿Qué es un fondo comunitario?',
-        description:
-          'Un conjunto de recursos financieros sostenido por donaciones, administrado por la FCC con el objetivo de desarrollar proyectos comunitarios.',
+        description: 'Es un "pozo" de recursos financieros construido por múltiples donantes, administrado rigurosamente por la FCC para financiar proyectos locales a largo plazo.',
       },
       {
-        title: '¿Cómo puedo donar?',
-        description:
-          'Puedes donar de manera directa a través de nuestra página de donaciones, eligiendo un proyecto específico o haciendo una donación general.',
+        title: '¿A dónde va mi donación?',
+        description: 'El 100% de tu donación puede ir a un proyecto específico de tu elección, o al fondo general para atender las necesidades más urgentes de la región.',
       },
       {
         title: '¿Cómo me uno a la red de voluntarios?',
-        description:
-          'Puedes unirte a nuestra red de voluntarios llenando el formulario en la página de voluntarios. Te contactaremos para coordinar actividades.',
+        description: 'Solo debes completar el formulario en nuestra sección de Voluntarios. Nuestro equipo te contactará para invitarte a la próxima inducción.',
       },
       {
-        title: '¿Cómo puedo proponer un proyecto comunitario?',
-        description:
-          'Estamos abiertos a recibir propuestas que beneficien a las comunidades de Cajamarca. Puedes contactarnos directamente a través del formulario de contacto.',
+        title: '¿Puedo presentar un proyecto para financiamiento?',
+        description: 'Sí. Constantemente evaluamos propuestas de la sociedad civil. Contáctanos a través del formulario principal para enviarte las bases de postulación.',
       },
-      
     ]}
   />
 </Layout>

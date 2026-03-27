@@ -1,6 +1,7 @@
 {
   "extends": "astro/tsconfigs/base",
   "compilerOptions": {
+    "ignoreDeprecations": "6.0",
     "strictNullChecks": true,
     "allowJs": true,
     "skipLibCheck": true, // Añade esta línea

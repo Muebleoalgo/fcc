@@ -1,53 +1,62 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
-import VolunteerForm from '~/components/widgets/VolunteerForm.astro';
 import Hero from '~/components/widgets/Hero.astro';
+import VolunteerForm from '~/components/widgets/VolunteerForm.astro';
+import Testimonials from '~/components/widgets/Testimonials.astro'; // Importamos el widget oficial
 
 const metadata = {
-  title: 'Únete como Voluntario',
+  title: 'Únete como Voluntario | FCC',
   ignoreTitleTemplate: true,
 };
-
-const carouselImages = [
-  '/src/assets/images/nosotros2.webp', // Puedes incluir más imágenes si es necesario
-];
 ---
 
 <Layout metadata={metadata}>
-  <!-- Hero con imagen de fondo y opacidad configurada -->
   <Hero
-    carouselImages={carouselImages}
+    image={{
+      src: '/images/nosotros2.webp',
+      alt: 'Trabajo comunitario en Cajamarca',
+      // FUNDAMENTAL: La capa oscura para que el menú principal blanco se lea perfecto
+      class: 'absolute inset-0 object-cover w-full h-full opacity-40', 
+    }}
   >
-    <!-- Contenedor principal de dos columnas -->
     <Fragment slot="content">
-      <div class="flex flex-col md:flex-row justify-between items-start gap-8">
+      <div class="flex flex-col lg:flex-row justify-between items-stretch gap-8 mt-4 md:mt-12">
 
-        <!-- Columna de título, cita y beneficios -->
-        <div class="w-full md:w-1/2 bg-gray-100 dark:bg-gray-800 p-6 rounded-lg shadow-lg">
-          <!-- Título y cita inspiradora -->
-          <h1 class="text-3xl md:text-4xl font-bold leading-tight">
+        <div class="w-full lg:w-1/2 bg-white/90 dark:bg-slate-900/80 backdrop-blur-md p-8 md:p-10 rounded-2xl shadow-2xl text-left border border-gray-200 dark:border-gray-700">
+          <h1 class="text-3xl md:text-5xl font-bold leading-tight text-primary dark:text-white mb-4">
             Sé el cambio que deseas ver en el mundo
           </h1>
-          <p class="text-xl font-semibold text-accent dark:text-white mt-2">- Mahatma Gandhi</p>
+          <p class="text-xl font-medium text-slate-600 dark:text-slate-300 italic mb-8">
+            - Mahatma Gandhi
+          </p>
 
-          <!-- Beneficios -->
-          <div class="mt-6">
-            <p class="font-bold text-lg mb-2">Beneficios de unirse a nuestra red de voluntarios:</p>
-            <ul class="list-disc pl-5 space-y-2 text-left">
-              <li>Certificación por horas de voluntariado</li>
-              <li>Desarrollo de habilidades blandas como liderazgo y trabajo en equipo</li>
-              <li>Contribuir al desarrollo de tu comunidad</li>
-              <li>Oportunidad de conocer a personas con intereses similares</li>
-            </ul>
-          </div>
+          <h2 class="font-bold text-xl mb-6 text-slate-800 dark:text-white">Beneficios de unirte a nuestra red:</h2>
+          
+          <ul class="space-y-4">
+            <li class="flex items-start">
+              <span class="text-primary mr-3 text-xl">✔</span>
+              <span class="text-slate-700 dark:text-slate-300 font-medium">Certificación oficial por horas de voluntariado.</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-primary mr-3 text-xl">✔</span>
+              <span class="text-slate-700 dark:text-slate-300 font-medium">Desarrollo de liderazgo y gestión de proyectos.</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-primary mr-3 text-xl">✔</span>
+              <span class="text-slate-700 dark:text-slate-300 font-medium">Impacto directo y real en el desarrollo de Cajamarca.</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-primary mr-3 text-xl">✔</span>
+              <span class="text-slate-700 dark:text-slate-300 font-medium">Networking con profesionales y líderes locales.</span>
+            </li>
+          </ul>
         </div>
 
-        <!-- Columna del formulario de voluntariado -->
-        <div class="w-full md:w-1/2 bg-gray-100 dark:bg-gray-800 p-6 rounded-lg shadow-lg">
+        <div class="w-full lg:w-1/2 bg-white/90 dark:bg-slate-900/80 backdrop-blur-md p-8 md:p-10 rounded-2xl shadow-2xl border border-gray-200 dark:border-gray-700 flex flex-col justify-center">
           <VolunteerForm 
-            title="Únete como Voluntario"
-            subtitle="Sé parte del cambio en tu comunidad"
-            tagline="Completa el formulario para registrarte como voluntario y unirte a nuestra red"
+            title='<span class="leading-tight text-primary dark:text-white mb-4 block text-3xl md:text-4xl">Únete como Voluntario</span>'
+            subtitle="Sé parte activa del cambio"
+            tagline="Completa tus datos y nuestro equipo se pondrá en contacto contigo."
           />
         </div>
 
@@ -55,17 +64,20 @@ const carouselImages = [
     </Fragment>
   </Hero>
 
-  <!-- Testimonios -->
-  <div class="max-w-7xl mx-auto px-6 py-12">
-    <section class="bg-gray-100 dark:bg-gray-800 p-6 rounded-lg mt-8">
-      <h2 class="text-2xl font-bold mb-4 text-center text-gray-900 dark:text-white">Historias de nuestros voluntarios</h2>
-      <div class="flex flex-col md:flex-row gap-6">
-        <blockquote class="bg-white dark:bg-gray-700 p-4 rounded-lg shadow text-gray-800 dark:text-gray-200">
-          <p class="italic">"Ser voluntario en FCC me permitió crecer como persona y contribuir a mi comunidad."</p>
-          <footer class="mt-4 font-bold">- María López</footer>
-        </blockquote>
-        <!-- Otros testimonios aquí -->
-      </div>
-    </section>
-  </div>
+  <Testimonials
+    title="Historias de nuestros voluntarios"
+    subtitle="Descubre la experiencia de quienes ya están transformando nuestra región."
+    testimonials={[
+      {
+        testimonial: 'Ser voluntaria en la FCC me permitió crecer como persona, aplicar lo que aprendo en la universidad y contribuir directamente a mi comunidad. Es una experiencia que te cambia la perspectiva por completo.',
+        name: 'María López',
+        job: 'Voluntaria - Maratón por los Sueños',
+        image: {
+          src: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
+          alt: 'Foto referencial de voluntaria',
+        },
+      },
+      // Puedes agregar más objetos de testimonios aquí
+    ]}
+  />
 </Layout>

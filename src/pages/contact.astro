@@ -5,74 +5,140 @@ import ContactUs from '~/components/widgets/Contact.astro';
 import Features2 from '~/components/widgets/Features2.astro';
 
 const metadata = {
-  title: 'Contacto',
+  title: 'Contacto | Fundación Comunitaria Cajamarca',
 };
 ---
 
-<Layout metadata={metadata}>
-  <!-- HeroText Widget ******************* -->
-
-  <HeroText tagline="Contacto" title="¡Conectemos!" />
+<Layout metadata={metadata} headerTheme="light">
+  <HeroText tagline="Contacto" title="Conectemos por Cajamarca" />
 
   <ContactUs
-    id="form"
-    title="¡Envíanos un mensaje hoy mismo!"
-    subtitle="Para respuestas más rápidas, explora nuestra sección de preguntas frecuentes (FAQs). ¡Podrías encontrar la solución que buscas allí mismo! Si no, nuestro equipo de soporte estará encantado de ayudarte."
+    id="formContacto"
+    title="¡Escríbenos hoy mismo!"
+    subtitle="Ya sea que quieras realizar una donación, proponer una alianza estratégica o conocer más sobre el impacto de nuestros proyectos, estamos listos para escucharte. Nuestro equipo de coordinación te responderá a la brevedad."
     inputs={[
       {
         type: 'text',
-        name: 'name',
+        name: 'nombre', // Estandarizado con Voluntarios
         label: 'Nombre',
+        required: true,
+      },
+      {
+        type: 'text',
+        name: 'apellidos', // Nuevo campo añadido y estandarizado
+        label: 'Apellidos',
+        required: true,
       },
       {
         type: 'email',
-        name: 'email',
+        name: 'email', // Estandarizado
         label: 'Correo Electrónico',
+        required: true,
       },
+      {
+        type: 'tel',
+        name: 'telefono', // Estandarizado
+        label: 'Teléfono o Celular',
+        required: true,
+      }
     ]}
     textarea={{
-      label: 'Mensaje',
+      label: 'Tu mensaje',
+      required: true,
     }}
     disclaimer={{
-      label: 'Al enviar este formulario de contacto, reconoces y aceptas la recopilación de tu información personal.',
+      label: 'Al enviar este formulario, aceptas nuestra política de privacidad y el tratamiento de tus datos para fines de contacto institucional.',
+      required: true,
     }}
-    description="Nuestro equipo de soporte generalmente responde dentro de las 24 horas hábiles."
+    description="Nos pondremos en contacto contigo en un plazo máximo de 24 a 48 horas hábiles."
   />
 
-  <!-- Features2 Widget ************** -->
-
   <Features2
-    title="¡Estamos aquí para ayudarte!"
+    title="¿De qué otra forma podemos ayudarte?"
     items={[
       {
-        title: 'Soporte general',
-        description: `Chatea con nosotros para consultas relacionadas con la gestión de cuentas, navegación en el sitio web, problemas de pago, acceso a plantillas adquiridas o preguntas generales sobre la funcionalidad del sitio web.`,
+        title: 'Alianzas Estratégicas',
+        description: `¿Representas a una empresa, institución u organización de la sociedad civil? Escríbenos para diseñar juntos proyectos de responsabilidad social que transformen nuestra región.`,
+        icon: 'tabler:building-community',
       },
       {
-        title: 'Contactar ventas',
+        title: 'Donaciones y Aportes',
         description:
-          'Chatea con nosotros para preguntas sobre compras, opciones de personalización, licencias para uso comercial, consultas sobre una plantilla específica, etc.',
+          'Si tienes dudas sobre cómo canalizar tus recursos financieros o materiales de forma segura y transparente, nuestro equipo te guiará en todo el proceso de filantropía.',
+        icon: 'tabler:gift',
       },
       {
-        title: 'Soporte técnico',
+        title: 'Voluntariado',
         description:
-          'Chatea con nosotros si enfrentas problemas como la instalación de plantillas, dificultades al editarlas, problemas de compatibilidad con software o errores de descarga, u otros desafíos técnicos relacionados con el uso de las plantillas.',
+          '¿Quieres sumar tus manos a nuestras actividades de campo como la "Maratón por los sueños"? Escríbenos para conocer las próximas convocatorias y capacitaciones.',
+        icon: 'tabler:heart-handshake',
       },
       {
-        title: 'Teléfono',
-        description: '+1 (234) 567-890',
+        title: 'Teléfono / WhatsApp',
+        description: '+51 999 999 999', /* Actualizar con número de FCC */
         icon: 'tabler:headset',
       },
       {
-        title: 'Correo Electrónico',
-        description: 'contacto@soporte.com',
+        title: 'Correo Institucional',
+        description: 'contacto@fccajamarca.org', /* Actualizar con correo de FCC */
         icon: 'tabler:mail',
       },
       {
-        title: 'Ubicación',
-        description: '1234 Calle Lorem Ipsum, 12345, Cajamarca, Perú',
+        title: 'Nuestra Sede',
+        description: 'Cajamarca, Perú',
         icon: 'tabler:map-pin',
       },
     ]}
   />
+
+  <script>
+    // Buscamos el formulario automáticamente en esta página
+    const contactForm = document.querySelector('form');
+
+    if (contactForm) {
+      contactForm.addEventListener('submit', async (event: SubmitEvent) => {
+        event.preventDefault();
+        
+        // UX: Botón de carga
+        const submitBtn = contactForm.querySelector('button[type="submit"]') as HTMLButtonElement;
+        const originalBtnText = submitBtn ? submitBtn.innerText : 'Enviar';
+        if(submitBtn) submitBtn.innerText = 'Enviando...';
+
+        const formData = new FormData(event.target as HTMLFormElement);
+        
+        // 1. Tu Access Key
+        formData.append("access_key", "6dd9b761-9dee-4a96-9e65-657fdeb47096");
+        // 2. Asunto personalizado para que sepas que es un contacto general
+        formData.append("subject", "📬 ¡Nuevo Mensaje de Contacto en la Web!");
+        
+        const data = Object.fromEntries(formData.entries());
+
+        try {
+          const response = await fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Accept': 'application/json'
+            },
+            body: JSON.stringify(data),
+          });
+
+          const result = await response.json();
+
+          if (response.status === 200) {
+            alert("¡Mensaje enviado con éxito! Nuestro equipo lo revisará en breve.");
+            contactForm.reset(); // Limpia el formulario
+          } else {
+            alert("Error: " + result.message);
+          }
+        } catch (error) {
+          console.error("Error al enviar el formulario:", error);
+          alert("Ocurrió un error al enviar tu mensaje. Por favor, inténtalo de nuevo.");
+        } finally {
+          // UX: Restauramos el botón
+          if(submitBtn) submitBtn.innerText = originalBtnText;
+        }
+      });
+    }
+  </script>
 </Layout>

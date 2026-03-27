@@ -14,44 +14,49 @@ const metadata = {
   ignoreTitleTemplate: true,
 };
 
-// Rutas actualizadas para apuntar a la carpeta public/ y evitar que se rompan en producción
-const carouselImagesIndex = [
-  '/images/proyecto1.webp',
-  '/images/proyecto2.webp',
-  '/images/proyecto3.webp'
-];
 ---
 
 <Layout metadata={metadata}>
   
   <Hero
-    actions={[
+actions={[
       {
-        variant: 'primary',
-        text: 'Haz una donación',
-        href: '/donaciones/donaciones',
-        target: '_self',
-        icon: 'tabler:heart',
+        text: 'Conoce nuestro impacto',
+        href: '#impacto',
+        // Botón 2: Fondo transparente, hover azul institucional, bordes que cambian, texto blanco SIEMPRE
+        class: '!bg-transparent hover:!bg-[#0047AB] !border-2 !border-white hover:!border-[#0047AB] !text-white hover:!text-white !rounded-full w-full sm:w-auto transition-all duration-300 px-6 py-3 font-semibold',
       },
-      { text: 'Conoce nuestro impacto', href: '#impacto' },
+      {
+        text: 'Nuestros proyectos',
+        href: '/proyectos/proyectos',
+        // Botón 2: Fondo transparente, hover azul institucional, bordes que cambian, texto blanco SIEMPRE
+        class: '!bg-transparent hover:!bg-[#0047AB] !border-2 !border-white hover:!border-[#0047AB] !text-white hover:!text-white !rounded-full w-full sm:w-auto transition-all duration-300 px-6 py-3 font-semibold',
+      },
     ]}
-    carouselImages={carouselImagesIndex}
+    image={{
+      src: '/images/proyectos-fcc.webp',
+      alt: 'Trabajo comunitario en Cajamarca',
+    }}
   >
     <Fragment slot="title">
-      Fundación Comunitaria Cajamarca
-      <span class="text-accent dark:text-white block text-4xl md:text-5xl mt-2"
-        >Conectando a los cajamarquinos</span
-      >
+      <span class="block text-4xl md:text-6xl font-bold mb-4 tracking-tight !text-white drop-shadow-lg highlight">
+        Fundación Comunitaria Cajamarca
+      </span>
+      <span class="block text-2xl md:text-4xl font-semibold !text-white drop-shadow-md opacity-90 mt-2">
+        Conectando a los cajamarquinos
+      </span>
     </Fragment>
 
     <Fragment slot="subtitle">
-      Canalizamos recursos y articulamos alianzas para impulsar proyectos en educación, salud y desarrollo que transforman vidas en nuestra región.
+      <p class="text-lg md:text-2xl font-medium leading-relaxed !text-white drop-shadow max-w-4xl mx-auto mt-8">
+
+      </p>
     </Fragment>
   </Hero>
 
   <Stats
     id="impacto"
-    title="Nuestro impacto en números"
+    title="Nuestro impacto"
     subtitle="La transparencia y los resultados son nuestra mejor carta de presentación."
     stats={[
       { title: 'Proyectos Articulados', amount: 2 },
@@ -76,7 +81,7 @@ const carouselImagesIndex = [
       },
       {
         title: 'Transparencia',
-        description: 'Trazabilidad total de los fondos. Procesos claros para mantener la confianza de nuestros donantes.',
+        description: 'Trazabilidad total de los fondos. Procesos claros para mantener la confianza de nuestros aliados.',
         icon: 'tabler:shield-check',
       },
       {
@@ -119,7 +124,7 @@ const carouselImagesIndex = [
       {
         variant: 'primary',
         text: 'Dona ahora',
-        href: '/donaciones/donaciones',
+        href: 'https://link.mercadopago.com.pe/fccajamarca',
         target: '_self',
         icon: 'tabler:gift',
       },
@@ -148,7 +153,7 @@ const carouselImagesIndex = [
       },
       {
         title: '¿A dónde va mi donación?',
-        description: 'El 100% de tu donación puede ir a un proyecto específico de tu elección, o al fondo general para atender las necesidades más urgentes de la región.',
+        description: 'Tu donación puede ir a un proyecto específico de tu elección, o a un fondo general para atender las necesidades más urgentes de la región.',
       },
       {
         title: '¿Cómo me uno a la red de voluntarios?',
@@ -161,3 +166,4 @@ const carouselImagesIndex = [
     ]}
   />
 </Layout>
+

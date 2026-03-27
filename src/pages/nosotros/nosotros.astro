@@ -1,5 +1,4 @@
 ---
-import Features2 from '~/components/widgets/Features2.astro';
 import Features3 from '~/components/widgets/Features3.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import Stats from '~/components/widgets/Stats.astro';
@@ -23,12 +22,16 @@ const carouselImagesIndex = [
 
   <Hero
     tagline="Nosotros"
-    carouselImages={carouselImagesIndex} 
+        image={{
+      src: '/images/proyecto4.webp',
+      alt: 'Trabajo comunitario en Cajamarca',
+    }}
   >
     <Fragment slot="title"> 
       Potenciamos proyectos</br>
-      <span class="text-accent dark:text-white "
-      >Articulando instituciones cajamarquinas</span>
+      <span class="text-accent dark:text-white ">
+        Articulando instituciones cajamarquinas
+      </span>
     </Fragment>
 
     <Fragment slot="subtitle">
@@ -155,34 +158,5 @@ const carouselImagesIndex = [
     ]}
   />
 
-  <!-- Features2 Widget ************** -->
-
-  <Features2
-    title="Soporte y contacto"
-    tagline="Contáctanos"
-    columns={2}
-    items={[
-      {
-        title: 'Correo electrónico',
-        description: 'fundacioncomunitariacajamarca@gmail.com',
-        icon: 'tabler:mail',
-      },
-      {
-        title: 'Teléfono/WhatsApp',
-        description: '+51 965768311',
-        icon: 'tabler:phone',
-      },
-      {
-        title: 'Redes sociales',
-        description: 'Instagram: @fundacioncomunitariacajamarca  </br> Facebook: Fundación Comunitaria Cajamarca',
-        icon: 'tabler:brand-instagram',
-      },
-      {
-        title: 'Cajamarca, Perú',
-        description:
-          'Nos encontramos en el distrito de Cajamarca, en la provincia de Cajamarca, en la región Cajamarca.',
-        icon: 'tabler:map-pin',
-      },
-    ]}
-  />
+ 
 </Layout>

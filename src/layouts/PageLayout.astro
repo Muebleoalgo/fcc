@@ -10,9 +10,10 @@ import type { MetaData } from '~/types';
 
 export interface Props {
   metadata?: MetaData;
+  headerTheme?: 'dark' | 'light';
 }
 
-const { metadata } = Astro.props;
+const { metadata, headerTheme = 'dark' } = Astro.props;
 ---
 
 <Layout metadata={metadata}>
@@ -20,7 +21,7 @@ const { metadata } = Astro.props;
     <Announcement />
   </slot> -->
   <slot name="header">
-    <Header {...headerData} isSticky showRssFeed showToggleTheme />
+    <Header {...headerData} isSticky showRssFeed showToggleTheme headerTheme={headerTheme} />
   </slot>
   <main>
     <slot />

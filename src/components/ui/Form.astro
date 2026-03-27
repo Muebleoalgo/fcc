@@ -26,9 +26,9 @@ const {
         name && (
           <div class="mb-6">
             {label && (
-              <label for={name} class="block text-left text-sm font-medium">
+              <label for={name} class="block text-left text-sm font-bold text-primary dark:text-white mb-1">
                 {label}
-                {required && <span class="text-red-600 ml-1">*</span>} <!-- Asterisco rojo para campos obligatorios -->
+                {required && <span class="text-red-600 ml-1">*</span>} 
               </label>
             )}
             {
@@ -37,7 +37,7 @@ const {
                   name={name}
                   id={name}
                   multiple={multiple}
-                  class="py-3 px-4 block w-full text-md rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900"
+                  class="py-3 px-4 block w-full text-md rounded-lg border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-900 text-slate-900 dark:text-white"
                   required={required}
                 >
                   {options.map(option => (
@@ -51,7 +51,7 @@ const {
                   id={name}
                   autocomplete={autocomplete}
                   placeholder={placeholder}
-                  class="py-3 px-4 block w-full text-md rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900"
+                  class="py-3 px-4 block w-full text-md rounded-lg border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-900 text-slate-900 dark:text-white"
                   required={required}
                 />
               )
@@ -64,16 +64,16 @@ const {
   {
     textarea && (
       <div>
-        <label for="textarea" class="block text-left text-sm font-medium">
+        <label for="textarea" class="block text-left text-sm font-bold text-primary dark:text-white mb-1">
           {textarea.label}
-          {textarea.required && <span class="text-red-600 ml-1">*</span>} <!-- Asterisco rojo para campo obligatorio -->
+          {textarea.required && <span class="text-red-600 ml-1">*</span>} 
         </label>
         <textarea
           id="textarea"
           name={textarea.name ? textarea.name : 'message'}
           rows={textarea.rows ? textarea.rows : 4}
           placeholder={textarea.placeholder}
-          class="py-3 px-4 block w-full text-md rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900"
+          class="py-3 px-4 block w-full text-md rounded-lg border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-900 text-slate-900 dark:text-white mt-2"
           required={textarea.required}
         />
       </div>
@@ -88,12 +88,12 @@ const {
             id="disclaimer"
             name="disclaimer"
             type="checkbox"
-            class="cursor-pointer mt-1 py-3 px-4 block w-full text-md rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900"
+            class="cursor-pointer mt-1 py-3 px-4 block w-full text-md rounded-lg border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-900"
             required={disclaimer.required}
           />
         </div>
         <div class="ml-3">
-          <label for="disclaimer" class="cursor-pointer select-none text-left text-sm text-gray-600 dark:text-gray-400">
+          <label for="disclaimer" class="cursor-pointer select-none text-left text-sm font-medium text-primary dark:text-gray-400">
             <span set:html={`${disclaimer.label}${disclaimer.required ? '<span class="text-red-500">*</span>' : ''}`}></span>
           </label>
         </div>

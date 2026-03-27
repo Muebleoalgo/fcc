@@ -2,363 +2,251 @@
 import Layout from '~/layouts/PageLayout.astro';
 
 import Header from '~/components/widgets/Header.astro';
-import Hero from '~/components/widgets/Hero.astro';
 import Content from '~/components/widgets/Content.astro';
 import Content1 from '~/components/widgets/Content1.astro';
-import CallToAction from '~/components/widgets/CallToAction.astro';
-import Features3 from '~/components/widgets/Features3.astro';
-import Testimonials from '~/components/widgets/Testimonials.astro';
-import Steps from '~/components/widgets/Steps.astro';
-import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
-import { getPermalink } from '~/utils/permalinks';
+
 
 const metadata = {
   title: 'Personal Homepage Demo',
 };
 ---
 
-<Layout metadata={metadata}>
+<Layout metadata={metadata} headerTheme="light">
   <Fragment slot="announcement"></Fragment>
   <Fragment slot="header">
     <Header
     isSticky
     showToggleTheme
+    headerTheme="light"
     />
   </Fragment>
 
   <!-- Hero2 Widget ******************* -->
 
   <!-- Content Widget **************** -->
-  <Content
+<Content
   id="josemartin_cabrera"
   columns={3}
   items={[
-    {
-      icon: 'tabler:brand-dribbble',
-      callToAction: {
-        target: '_blank',
-        text: 'Dribbble',
-        href: '#',
-      },
-    },
-    {
-      icon: 'tabler:brand-behance',
-      callToAction: {
-        target: '_blank',
-        text: 'Behance',
-        href: '#',
-      },
-    },
-    {
-      icon: 'tabler:brand-pinterest',
-      callToAction: {
-        target: '_blank',
-        text: 'Pinterest',
-        href: '#',
-      },
-    },
+    { icon: 'tabler:brand-linkedin', callToAction: { target: '_blank', text: 'LinkedIn', href: 'https://www.linkedin.com/in/josemartin-cabrera-vidal-22807420a' } },
   ]}
   image={{
-    src: 'https://images.unsplash.com/photo-1491349174775-aaafddd81942?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80',
-    alt: 'Colorful Image',
+    src: 'URL_DE_TU_FOTO',
+    alt: 'Josemartin Cabrera Vidal',
     loading: 'eager',
   }}
 >
   <Fragment slot="content">
-    <h2 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Josemartin Cabrera</h2>
+    <h2 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Josemartin Cabrera Vidal</h2>
+    <h3 class="text-lg font-medium text-primary mb-2">Presidente de la FCC | Estratega de Operaciones</h3>
     <p>
-      Welcome to my creative journey. My work is a testament to my commitment to bringing ideas to life, where each
-      pixel becomes a brushstroke in the canvas of imagination.
+      Estratega en gestión de operaciones y proyectos con formación en Administración e Ingeniería de Sistemas. 
+      Lidera la FCC bajo una visión de emprendimiento social disruptivo, habiendo gestionado proyectos logísticos de 
+      alta escala y plataformas tecnológicas premiadas nacionalmente.
     </p>
     <br />
     <p>
-      I find inspiration in the world around me, whether through the pages of a captivating novel, the intricate
-      details of typography, or the vibrant hues of nature during my outdoor escapades.
+      Su gestión integra estándares internacionales de filantropía adquiridos en Brasil para articular recursos 
+      globales hacia el desarrollo de Cajamarca. Es el catalizador entre la innovación 
+      tecnológica y el impacto social sostenible.
     </p>
-    <br />
-    <p>If you're curious to dive deeper into my work, you can follow me:</p>
-  </Fragment>
-
-  <Fragment slot="bg">
-    <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
   </Fragment>
 </Content>
 
-
 <Content1
-id="kevin_mera"
-columns={3}
-items={[
-  {
-    icon: 'tabler:brand-dribbble',
-    callToAction: {
-      target: '_blank',
-      text: 'Dribbble',
-      href: '#',
-    },
-  },
-  {
-    icon: 'tabler:brand-behance',
-    callToAction: {
-      target: '_blank',
-      text: 'Behance',
-      href: '#',
-    },
-  },
-  {
-    icon: 'tabler:brand-pinterest',
-    callToAction: {
-      target: '_blank',
-      text: 'Pinterest',
-      href: '#',
-    },
-  },
-]}
-image={{
-  src: 'https://images.unsplash.com/photo-1491349174775-aaafddd81942?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80',
-  alt: 'Colorful Image',
-  loading: 'eager',
-}}
->
-<Fragment slot="content">
-  <h2 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Kevin Mera</h2>
-  <p>
-    Welcome to my creative journey. My work is a testament to my commitment to bringing ideas to life, where each
-    pixel becomes a brushstroke in the canvas of imagination.
-  </p>
-  <br />
-  <p>
-    I find inspiration in the world around me, whether through the pages of a captivating novel, the intricate
-    details of typography, or the vibrant hues of nature during my outdoor escapades.
-  </p>
-  <br />
-  <p>If you're curious to dive deeper into my work, you can follow me:</p>
-</Fragment>
-
-<Fragment slot="bg">
-  <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-</Fragment>
-</Content1>
-
-  <Content
-    id="jean_chavez"
-    columns={3}
-    items={[
-      {
-        icon: 'tabler:brand-dribbble',
-        callToAction: {
-          target: '_blank',
-          text: 'Dribbble',
-          href: '#',
-        },
-      },
-      {
-        icon: 'tabler:brand-behance',
-        callToAction: {
-          target: '_blank',
-          text: 'Behance',
-          href: '#',
-        },
-      },
-      {
-        icon: 'tabler:brand-pinterest',
-        callToAction: {
-          target: '_blank',
-          text: 'Pinterest',
-          href: '#',
-        },
-      },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1491349174775-aaafddd81942?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80',
-      alt: 'Colorful Image',
-      loading: 'eager',
-    }}
-  >
-    <Fragment slot="content">
-      <h2 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Jean Chávez</h2>
-      <p>
-        Welcome to my creative journey. My work is a testament to my commitment to bringing ideas to life, where each
-        pixel becomes a brushstroke in the canvas of imagination.
-      </p>
-      <br />
-      <p>
-        I find inspiration in the world around me, whether through the pages of a captivating novel, the intricate
-        details of typography, or the vibrant hues of nature during my outdoor escapades.
-      </p>
-      <br />
-      <p>If you're curious to dive deeper into my work, you can follow me:</p>
-    </Fragment>
-
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </Content>
-
-
-  <Content1
-  id="dennise_salas"
+  id="kevin_mera"
   columns={3}
   items={[
-    {
-      icon: 'tabler:brand-dribbble',
-      callToAction: {
-        target: '_blank',
-        text: 'Dribbble',
-        href: '#',
-      },
-    },
-    {
-      icon: 'tabler:brand-behance',
-      callToAction: {
-        target: '_blank',
-        text: 'Behance',
-        href: '#',
-      },
-    },
-    {
-      icon: 'tabler:brand-pinterest',
-      callToAction: {
-        target: '_blank',
-        text: 'Pinterest',
-        href: '#',
-      },
-    },
+    { icon: 'tabler:brand-linkedin', callToAction: { target: '_blank', text: 'LinkedIn', href: 'https://www.linkedin.com/in/kevin-mera/' } },
   ]}
   image={{
-    src: 'https://images.unsplash.com/photo-1491349174775-aaafddd81942?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80',
-    alt: 'Colorful Image',
+    src: 'URL_DE_FOTO_KEVIN',
+    alt: 'Kevin Leonardo Mera Tavera',
     loading: 'eager',
   }}
 >
   <Fragment slot="content">
-    <h2 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Dennise Salas</h2>
+    <h2 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Kevin Leonardo Mera Tavera</h2>
+    <h3 class="text-lg font-medium text-primary mb-2">Director Ejecutivo | Especialista en Procesos</h3>
     <p>
-      Welcome to my creative journey. My work is a testament to my commitment to bringing ideas to life, where each
-      pixel becomes a brushstroke in the canvas of imagination.
+      Ingeniero de Minas con un enfoque sistémico en la dirección de organizaciones. Destaca por 
+      un rigor metodológico excepcional perfeccionado en la asesoría académica, asegurando que cada 
+      intervención de la fundación posea una estructura operativa impecable y auditable.
     </p>
     <br />
     <p>
-      I find inspiration in the world around me, whether through the pages of a captivating novel, the intricate
-      details of typography, or the vibrant hues of nature during my outdoor escapades.
+      Aplica marcos internacionales de gestión comunitaria desarrollados en Brasil para garantizar la excelencia 
+      y transparencia en la ejecución. Como Director Ejecutivo, es el arquitecto del orden y la confianza 
+      necesaria para nuestros aliados estratégicos.
     </p>
-    <br />
-    <p>If you're curious to dive deeper into my work, you can follow me:</p>
-  </Fragment>
-
-  <Fragment slot="bg">
-    <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
   </Fragment>
 </Content1>
 
 <Content
-id="royer_munoz"
-columns={3}
-items={[
-  {
-    icon: 'tabler:brand-dribbble',
-    callToAction: {
-      target: '_blank',
-      text: 'Dribbble',
-      href: '#',
-    },
-  },
-  {
-    icon: 'tabler:brand-behance',
-    callToAction: {
-      target: '_blank',
-      text: 'Behance',
-      href: '#',
-    },
-  },
-  {
-    icon: 'tabler:brand-pinterest',
-    callToAction: {
-      target: '_blank',
-      text: 'Pinterest',
-      href: '#',
-    },
-  },
-]}
-image={{
-  src: 'https://images.unsplash.com/photo-1491349174775-aaafddd81942?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80',
-  alt: 'Colorful Image',
-  loading: 'eager',
-}}
+  id="jean_chavez"
+  columns={3}
+  items={[
+    { icon: 'tabler:brand-linkedin', callToAction: { target: '_blank', text: 'LinkedIn', href: 'https://www.linkedin.com/in/jeanpierrech%C3%A1vezd%C3%ADaz/' } },
+  ]}
+  image={{
+    src: 'URL_DE_FOTO_JEAN',
+    alt: 'Jean Pierre Chavez Diaz',
+    loading: 'eager',
+  }}
 >
-<Fragment slot="content">
-  <h2 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Royer Muñoz</h2>
-  <p>
-    Welcome to my creative journey. My work is a testament to my commitment to bringing ideas to life, where each
-    pixel becomes a brushstroke in the canvas of imagination.
-  </p>
-  <br />
-  <p>
-    I find inspiration in the world around me, whether through the pages of a captivating novel, the intricate
-    details of typography, or the vibrant hues of nature during my outdoor escapades.
-  </p>
-  <br />
-  <p>If you're curious to dive deeper into my work, you can follow me:</p>
-</Fragment>
+  <Fragment slot="content">
+    <h2 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Jean Pierre Chavez Díaz</h2>
+    <h3 class="text-lg font-medium text-primary mb-2">Secretario Institucional</h3>
+    <p>
+      Psicólogo Organizacional especializado en el fortalecimiento del capital humano y la cohesión del tejido social. 
+      Experto en el diseño de dinámicas colaborativas que garantizan la integridad interna y la eficacia operativa 
+      de los programas de impacto comunitario.
+    </p>
+    <br />
+    <p>
+      Su enfoque estratégico está respaldado por formación internacional en Brasil bajo el programa CF Leads, 
+      lo que le permite implementar modelos de empoderamiento local con estándares globales, asegurando que 
+      cada actor social sea un motor de desarrollo sostenible y protagonista de su propio progreso.
+    </p>
+  </Fragment>
+</Content>
+<Content1
+  id="alejandro_cerna"
+  columns={3}
+  items={[
+    { icon: 'tabler:brand-instagram', callToAction: { target: '_blank', text: 'Portafolio', href: '#' } },
+  ]}
+  image={{
+    src: 'URL_DE_FOTO_ALEJANDRO',
+    alt: 'Luis Alejandro Cerna Vargas',
+    loading: 'eager',
+  }}
+>
+  <Fragment slot="content">
+    <h2 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Luis Alejandro Cerna Vargas</h2>
+    <h3 class="text-lg font-medium text-primary mb-2">Director de Marketing y RR.EE.</h3>
+    <p>
+      Estratega de comunicación y artista audiovisual. Encargado de construir la narrativa pública de la FCC, 
+      traduciendo la complejidad del impacto social en historias potentes que conectan con donantes 
+      y aliados estratégicos.
+    </p>
+    <br />
+    <p>
+      Su capacidad para la gestión de relaciones públicas y su reconocimiento en el sector creativo son 
+      fundamentales para la movilización de recursos y la visibilidad nacional e internacional de nuestra región.
+    </p>
+  </Fragment>
+</Content1>
 
-<Fragment slot="bg">
-  <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-</Fragment>
+<Content
+  id="miguel_arenaza"
+  columns={3}
+  items={[
+    { icon: 'tabler:brand-linkedin', callToAction: { target: '_blank', text: 'LinkedIn', href: 'https://www.linkedin.com/in/miguel-arenaza-75365b2b1/' } },
+  ]}
+  image={{
+    src: 'URL_DE_FOTO_MIGUEL',
+    alt: 'Miguel Alejandro Arenaza Vásquez',
+    loading: 'eager',
+  }}
+>
+  <Fragment slot="content">
+    <h2 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Miguel Alejandro Arenaza Vásquez</h2>
+    <h3 class="text-lg font-medium text-primary mb-2">Asesor Legal y de Cumplimiento</h3>
+    <p>
+      Arquitecto del marco jurídico de la FCC. Su gestión técnica permitió la obtención de la exoneración 
+      del Impuesto a la Renta y la calificación como ente perceptor de donaciones, garantizando la 
+      integridad institucional ante la SUNAT.
+    </p>
+    <br />
+    <p>
+      Asegura que cada proceso de la fundación opere bajo los más estrictos estándares de transparencia 
+      y legalidad, brindando confianza absoluta a nuestros cooperantes internacionales y nacionales.
+    </p>
+  </Fragment>
 </Content>
 
+<Content1
+  id="jhon_silva"
+  columns={3}
+  items={[
+    { icon: 'tabler:briefcase', callToAction: { target: '_blank', text: 'Perfil Técnico', href: '#' } },
+  ]}
+  image={{
+    src: 'URL_DE_FOTO_JHON',
+    alt: 'Jhon Edilberto Silva Cadenillas',
+    loading: 'eager',
+  }}
+>
+  <Fragment slot="content">
+    <h2 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Jhon Edilberto Silva Cadenillas</h2>
+    <h3 class="text-lg font-medium text-primary mb-2">Director de Gestión Contable</h3>
+    <p>
+      Responsable de la salud financiera y la rendición de cuentas de la fundación. Su labor es crítica 
+      para mantener la transparencia operativa, gestionando los recursos con una precisión que 
+      fortalece nuestra posición ante los entes fiscalizadores.
+    </p>
+    <br />
+    <p>
+      Garante de que cada sol invertido en la fundación sea trazable y optimizado, asegurando que los 
+      fondos de nuestros donantes lleguen directamente a las soluciones comunitarias proyectadas.
+    </p>
+  </Fragment>
+</Content1>
+
+<Content
+  id="erick_mera"
+  columns={3}
+  items={[
+    { icon: 'tabler:settings', callToAction: { target: '_blank', text: 'Proyectos', href: '#' } },
+  ]}
+  image={{
+    src: 'URL_DE_FOTO_ERICK',
+    alt: 'Erick Martín Mera Tavera',
+    loading: 'eager',
+  }}
+>
+  <Fragment slot="content">
+    <h2 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Erick Martín Mera Tavera</h2>
+    <h3 class="text-lg font-medium text-primary mb-2">Consultor de Innovación Operativa</h3>
+    <p>
+      Ingeniero Industrial enfocado en la mejora continua de procesos. Aporta una visión disruptiva para 
+      identificar cuellos de botella y diseñar soluciones logísticas que maximizan el alcance de 
+      nuestras intervenciones en zonas rurales.
+    </p>
+    <br />
+    <p>
+      Su enfoque en la optimización de sistemas permite que la FCC escale sus modelos de impacto, 
+      asegurando que la estructura organizacional sea tan ágil como las necesidades de la comunidad.
+    </p>
+  </Fragment>
+</Content>
 
 <Content1
-id="alejandro_cerna"
-columns={3}
-items={[
-{
-  icon: 'tabler:brand-dribbble',
-  callToAction: {
-    target: '_blank',
-    text: 'Dribbble',
-    href: '#',
-  },
-},
-{
-  icon: 'tabler:brand-behance',
-  callToAction: {
-    target: '_blank',
-    text: 'Behance',
-    href: '#',
-  },
-},
-{
-  icon: 'tabler:brand-pinterest',
-  callToAction: {
-    target: '_blank',
-    text: 'Pinterest',
-    href: '#',
-  },
-},
-]}
-image={{
-src: 'https://images.unsplash.com/photo-1491349174775-aaafddd81942?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80',
-alt: 'Colorful Image',
-loading: 'eager',
-}}
+  id="dennise_salas"
+  columns={3}
+  items={[
+    { icon: 'tabler:brand-linkedin', callToAction: { target: '_blank', text: 'LinkedIn', href: 'https://www.linkedin.com/in/dennise-ximena-salas-vargas-712773144/' } },
+  ]}
+  image={{
+    src: 'URL_DE_FOTO_DENNISE',
+    alt: 'Dennise Ximena Salas Vargas',
+    loading: 'eager',
+  }}
 >
-<Fragment slot="content">
-<h2 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Alejandro Cerna</h2>
-<p>
-  Welcome to my creative journey. My work is a testament to my commitment to bringing ideas to life, where each
-  pixel becomes a brushstroke in the canvas of imagination.
-</p>
-<br />
-<p>
-  I find inspiration in the world around me, whether through the pages of a captivating novel, the intricate
-  details of typography, or the vibrant hues of nature during my outdoor escapades.
-</p>
-<br />
-<p>If you're curious to dive deeper into my work, you can follow me:</p>
-</Fragment>
-
-<Fragment slot="bg">
-<div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-</Fragment>
+  <Fragment slot="content">
+    <h2 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Dennise Ximena Salas Vargas</h2>
+    <h3 class="text-lg font-medium text-primary mb-2">Cofundadora y Administradora</h3>
+    <p>
+      Pieza fundamental en la estructuración administrativa inicial de la FCC. Su visión organizativa 
+      sentó las bases de la gobernanza institucional que permite a la fundación operar hoy con 
+      un marco sólido de gestión y control.
+    </p>
+    <br />
+    <p>
+      Como parte del equipo fundador, su experiencia en administración de empresas aporta el rigor 
+      necesario para la planificación estratégica y la sostenibilidad a largo plazo de la institución.
+    </p>
+  </Fragment>
 </Content1>
 </Layout>

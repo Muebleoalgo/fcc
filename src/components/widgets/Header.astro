@@ -26,6 +26,7 @@ export interface Props {
   actions?: Array<CallToAction>;
   isSticky?: boolean;
   isDark?: boolean;
+  headerTheme?: 'dark' | 'light';
   isFullWidth?: boolean;
   showToggleTheme?: boolean;
   showRssFeed?: boolean;
@@ -38,6 +39,7 @@ const {
   //actions = [],
   isSticky = false,
   isDark = false,
+  headerTheme = 'dark',
   isFullWidth = false,
   showToggleTheme = true,
   //showRssFeed = false,
@@ -49,7 +51,7 @@ const {
 
 <header
   class:list={[
-    { sticky: isSticky, relative: !isSticky, dark: isDark },
+    { sticky: isSticky, relative: !isSticky, dark: isDark, 'header-light': headerTheme === 'light' },
     'top-0 z-40 flex-none mx-auto w-full border-b border-gray-50/0 transition-[opacity] ease-in-out',
   ]}
   {...isSticky ? { 'data-aw-sticky-header': true } : {}}
@@ -83,9 +85,8 @@ const {
       aria-label="Main navigation"
     >
       <ul
-        class="flex flex-col md:flex-row md:self-center w-full md:w-auto text-xl md:text-[0.9375rem] tracking-[0.01rem] font-medium md:justify-center"
+        class="flex flex-col md:flex-row md:self-center w-full md:w-auto text-xl md:text-[0.9375rem] tracking-[0.01rem] font-medium md:justify-center header-menu-list"
       >
-        <!-- Modificar los enlaces del menú -->
         <li class="dropdown">
           <a href="/nosotros/nosotros" class="hover:text-link dark:hover:text-white px-4 py-3 flex items-center">
             Nosotros
@@ -97,48 +98,63 @@ const {
             <li>
               <a
                 class="py-2 px-5 block whitespace-no-wrap hover:text-link dark:hover:text-white dark:hover:bg-gray-700"
-                href="/nosotros/equipo">Equipo</a
-              >
-            </li>
-            <li>
-              <a
-                class="py-2 px-5 block whitespace-no-wrap hover:text-link dark:hover:text-white dark:hover:bg-gray-700"
                 href="/nosotros/historia">Nuestra Historia</a
               >
             </li>
-          </ul>
-        </li>
-        <!--
-        <li class="dropdown">
-          <a href="/donaciones/iniciativas" class="hover:text-link dark:hover:text-white px-4 py-3 flex items-center">
-            Iniciativas
-            <Icon name="tabler:chevron-down" class="w-3.5 h-3.5 ml-0.5 rtl:ml-0 rtl:mr-0.5 hidden md:inline" />
-          </a>
-          <ul
-            class="dropdown-menu md:backdrop-blur-md dark:md:bg-dark rounded md:absolute pl-4 md:pl-0 md:hidden font-medium md:bg-white/90 md:min-w-[200px] drop-shadow-xl"
-          >
-            <li>
+                        <li>
               <a
                 class="py-2 px-5 block whitespace-no-wrap hover:text-link dark:hover:text-white dark:hover:bg-gray-700"
-                href="/donaciones/empresas">Empresas</a
-              >
-            </li>
-            <li>
-              <a
-                class="py-2 px-5 block whitespace-no-wrap hover:text-link dark:hover:text-white dark:hover:bg-gray-700"
-                href="/donaciones/fondos">Fondos</a
+                href="/nosotros/equipo">Equipo</a
               >
             </li>
           </ul>
         </li>
-        -->
         
         <li class="dropdown">
           <a href="/proyectos/proyectos" class="hover:text-link dark:hover:text-white px-4 py-3 flex items-center">
             Proyectos
-            <Icon name="tabler:chevron-down" class="w-3.5 h-3.5 ml-0.5 rtl:ml-0 rtl:mr-0.5 hidden md:inline" />
+           
           </a>
-          <ul
+
+        </li>
+        <li class="dropdown">
+          <a href="/voluntarios/voluntarios" class="hover:text-link dark:hover:text-white px-4 py-3 flex items-center">
+            Voluntarios
+          </a>
+        </li>
+        <li>
+          <a href="/contact" class="hover:text-link dark:hover:text-white px-4 py-3 flex items-center"> Contáctanos </a>
+        </li>
+      </ul>
+    </nav>
+    <div
+      class:list={[
+        { 'ml-auto rtl:ml-0 rtl:mr-auto': position === 'left' },
+        'hidden md:self-center md:flex items-center md:mb-0 fixed w-full md:w-auto md:static justify-end left-0 rtl:left-auto rtl:right-0 bottom-0 p-3 md:p-0 md:justify-self-end',
+      ]}
+    >
+      <div class="items-center flex justify-between w-full md:w-auto">
+        <div class="flex theme-toggle-container">
+          {showToggleTheme && (
+            <ToggleTheme iconClass="w-6 h-6 md:w-5 md:h-5 md:inline-block dark:text-white" />
+          )}
+        </div>
+        
+        <span class="ml-4 rtl:ml-0 rtl:mr-4">
+          <BotonDonaAhora />
+        </span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<style is:global>
+  /* MAGIA CSS PARA EL HEADER TRANSPARENTE 
+    Solo aplica en ESCRITORIO (min-width: 768px), cuando NO estamos en modo oscuro y NO hay scroll
+  */
+  /*
+  codigo para dropdown de proyectos: 
+            <ul
             class="dropdown-menu md:backdrop-blur-md dark:md:bg-dark rounded md:absolute pl-4 md:pl-0 md:hidden font-medium md:bg-white/90 md:min-w-[200px] drop-shadow-xl"
           >
             <li>
@@ -154,55 +170,38 @@ const {
               >
             </li>
           </ul>
-        </li>
-        <li class="dropdown">
-          <a href="/voluntarios/voluntarios" class="hover:text-link dark:hover:text-white px-4 py-3 flex items-center">
-            Voluntarios
-             <!-- <Icon name="tabler:chevron-down" class="w-3.5 h-3.5 ml-0.5 rtl:ml-0 rtl:mr-0.5 hidden md:inline" /> -->
-          </a>
-          <!--
-          <ul
-            class="dropdown-menu md:backdrop-blur-md dark:md:bg-dark rounded md:absolute pl-4 md:pl-0 md:hidden font-medium md:bg-white/90 md:min-w-[200px] drop-shadow-xl"
-          >
-            <li>
-              <a
-                class="py-2 px-5 block whitespace-no-wrap hover:text-link dark:hover:text-white dark:hover:bg-gray-700"
-                href="/voluntarios/unete_voluntario">Únete como voluntario</a
-              >
-            </li>
-            <li>
-              <a
-                class="py-2 px-5 block whitespace-no-wrap hover:text-link dark:hover:text-white dark:hover:bg-gray-700"
-                href="/voluntarios/eventos">Eventos de Voluntariado</a
-              >
-            </li>
-          </ul>
-           -->
-        </li>
-        <li>
-          <a href="/contact" class="hover:text-link dark:hover:text-white px-4 py-3 flex items-center"> Contáctanos </a>
-        </li>
-      </ul>
-    </nav>
-    <div
-      class:list={[
-        { 'ml-auto rtl:ml-0 rtl:mr-auto': position === 'left' },
-        'hidden md:self-center md:flex items-center md:mb-0 fixed w-full md:w-auto md:static justify-end left-0 rtl:left-auto rtl:right-0 bottom-0 p-3 md:p-0 md:justify-self-end',
-      ]}
-    >
-      <div class="items-center flex justify-between w-full md:w-auto">
-        <div class="flex">
-          {showToggleTheme && (
-            <ToggleTheme iconClass="w-6 h-6 md:w-5 md:h-5 md:inline-block dark:text-white" />
-          )}
-        </div>
-        
-        <span class="ml-4 rtl:ml-0 rtl:mr-4">
-          <div class="bg-accent text-white inline-block rounded-md">
-            <BotonDonaAhora />
-          </div>
-        </span>
-      </div>
-    </div>
-  </div>
-</header>
+  */
+  @media (min-width: 768px) {
+    /* 1. Forzar color blanco en los enlaces principales del menú */
+    html:not(.dark) #header:not(.scroll):not(.expanded) .header-menu-list > li > a {
+      color: white !important;
+    }
+    
+    /* 2. Forzar color blanco en el ícono de cambiar tema (Sol) */
+    html:not(.dark) #header:not(.scroll):not(.expanded) .theme-toggle-container button {
+      color: white !important;
+    }
+
+    /* 3. Asegurar que los dropdowns (submenús) mantengan sus colores oscuros porque su fondo es blanco */
+    html:not(.dark) #header:not(.scroll):not(.expanded) .dropdown-menu a {
+      color: var(--aw-color-text-default) !important;
+    }
+    
+    html:not(.dark) #header:not(.scroll):not(.expanded) .dropdown-menu a:hover {
+      color: var(--aw-color-primary) !important;
+    }
+  }
+
+  /* REGLA NUEVA PARA HEADER PAGINAS BLANCAS (light) */
+  /* Solo aplica en ESCRITORIO si el header tiene la clase 'header-light' y NO hay scroll */
+  @media (min-width: 768px) {
+    html:not(.dark) #header.header-light:not(.scroll):not(.expanded) .header-menu-list > li > a,
+    html:not(.dark) #header.header-light:not(.scroll):not(.expanded) .theme-toggle-container button {
+      color: var(--aw-color-text-default) !important; /* Restaurar color oscuro */
+    }
+
+    /* Y forzamos el logo a color */
+    html:not(.dark) #header.header-light:not(.scroll) .logo-white { display: none !important; }
+    html:not(.dark) #header.header-light:not(.scroll) .logo-color { display: block !important; }
+  }
+</style>

@@ -15,14 +15,24 @@ const {
   class:
     className = 'text-muted dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center',
   iconClass = 'w-6 h-6',
-  iconName = 'tabler:sun',
 } = Astro.props;
 ---
 
 {
   !(UI.theme && UI.theme.endsWith(':only')) && (
     <button type="button" class={className} aria-label={label} data-aw-toggle-color-scheme>
-      <Icon name={iconName} class={iconClass} />
+      <Icon name="tabler:moon" class:list={[iconClass, 'moon-icon']} />
+      <Icon name="tabler:sun" class:list={[iconClass, 'sun-icon']} />
     </button>
   )
 }
+
+<style>
+  /* En modo claro (por defecto) */
+  .sun-icon { display: none !important; }
+  .moon-icon { display: inline-block !important; }
+
+  /* Cuando el elemento raíz HTML tiene la clase 'dark' */
+  :global(html.dark) .sun-icon { display: inline-block !important; }
+  :global(html.dark) .moon-icon { display: none !important; }
+</style>
